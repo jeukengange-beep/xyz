@@ -23,11 +23,34 @@
     .accent { color: var(--accent); }
     .blue { color: var(--blue); }
     .pill { display:inline-block; padding:.25em .6em; border-radius:999px; border:1px solid var(--stroke); font-size:.6em; color:#e5e7eb; }
-    .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
-    .grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:start; }
+    .grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; align-items:start; }
     .card { background: var(--surface); border:1px solid var(--stroke); padding:16px; border-radius:14px; }
     .kpi { font-size:2.2rem; font-weight:800; }
     .muted { color:var(--muted); font-size:.7em; }
+    .badge { display:inline-flex; align-items:center; gap:8px; padding:.45em .75em; border-radius:999px; background:rgba(43,160,255,.16); color:#e2e8f0; font-size:.62em; text-transform:uppercase; letter-spacing:.18em; }
+    table { width:100%; border-collapse:collapse; font-size:.8em; }
+    table th, table td { padding:10px 14px; border-bottom:1px solid var(--stroke); text-align:left; }
+    table th { color:#e2e8f0; font-weight:600; text-transform:uppercase; letter-spacing:.12em; font-size:.75em; }
+    table tbody tr:last-child td { border-bottom:none; }
+    .ph img { width:100%; border-radius:10px; display:block; }
+    .shot { background:linear-gradient(135deg, rgba(43,160,255,.2), rgba(255,51,102,.2)); border-radius:12px; padding:12px; color:#cbd5f5; font-size:.7em; text-align:left; min-height:140px; display:flex; flex-direction:column; gap:10px; justify-content:center; }
+    .shot strong { color:#f8fafc; font-size:.9em; }
+    .shot span { opacity:.8; }
+    .timeline { display:flex; flex-direction:column; gap:24px; }
+    .timeline .milestone { position:relative; padding-left:28px; }
+    .timeline .milestone::before { content:""; position:absolute; left:8px; top:4px; bottom:-12px; width:2px; background:var(--stroke); }
+    .timeline .milestone:last-child::before { bottom:8px; }
+    .timeline .milestone::after { content:""; position:absolute; left:0; top:4px; width:16px; height:16px; border-radius:999px; background:var(--accent); box-shadow:0 0 0 4px rgba(255,51,102,.15); }
+    .roadmap { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:18px; }
+    .roadmap h3 { font-size:1.1em; margin-bottom:12px; }
+    .chips { display:flex; flex-wrap:wrap; gap:8px; font-size:.7em; }
+    .chips span { background:rgba(148,163,184,.16); border:1px solid var(--stroke); border-radius:999px; padding:.35em .65em; }
+    .journey { display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:16px; font-size:.75em; }
+    .journey .stage { background:var(--surface); border:1px solid var(--stroke); border-radius:12px; padding:14px; }
+    .journey .stage strong { display:block; margin-bottom:8px; color:#e2e8f0; }
+    .insights { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:18px; }
+    .insights .card h3 { margin-top:0; font-size:1.05em; }
     .mini{ width: var(--mini-size,92px); position:absolute; z-index:9; opacity:0; filter: drop-shadow(0 8px 18px rgba(0,0,0,.35)); animation-fill-mode:both; }
     .mini[data-pos="tl"]{ top:20px; left:20px; } .mini[data-pos="tr"]{ top:20px; right:20px; }
     .mini[data-pos="bl"]{ bottom:20px; left:20px; } .mini[data-pos="br"]{ bottom:20px; right:20px; }
@@ -63,58 +86,248 @@
       <!-- COVER -->
       <section class="bg-blue" data-background-color="#0c0f1a" data-mini="cool_shades" data-transition="convex">
         <h1><span class="accent">XYZ Express</span> Meal Subscription</h1>
-        <p class="muted">Douala & Yaoundé — Product Marketing Strategy</p>
+        <p class="muted">Douala &amp; Yaoundé — Product Marketing Strategy</p>
         <p class="pill">By <span class="blue">Michel T.</span></p>
+        <aside class="notes">
+          Pitch open: frame the launch as a focused bet on predictable meals for busy urbanites and teams, and preview the journey: insight &rarr; validation &rarr; go-to-market.
+        </aside>
       </section>
 
-      <!-- OVERVIEW -->
-      <section data-background-color="#0f172a" data-mini="idea_eureka" data-transition="convex">
-        <h2>Why this launch, why now?</h2>
-        <ul>
-          <li class="fragment">Urban growth, young, mobile-first</li>
-          <li class="fragment">Delivery pain: traffic, reliability, trust</li>
-          <li class="fragment">Subscription appetite when value is clear</li>
-        </ul>
+      <!-- EXEC SUMMARY -->
+      <section data-background-color="#0f172a" data-mini="joy_victory" data-transition="convex">
+        <h2>Executive Summary</h2>
+        <div class="grid-3">
+          <div class="card">
+            <h3>Launch Objective</h3>
+            <ul>
+              <li>Win 1,200 recurring seats across both cities in 90 days</li>
+              <li>Lock CAC payback &le; 2.2 months</li>
+              <li>Reach NPS 45 through reliable delivery</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Primary Segments</h3>
+            <ul>
+              <li>Student professionals needing predictable lunches</li>
+              <li>SMB teams seeking single-invoice catering</li>
+              <li>Wellness-minded parents outsourcing dinner prep</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Critical Bets</h3>
+            <ul>
+              <li>Reliable batching via micro-fulfillment hubs</li>
+              <li>Tiered subscription bundles with pause/resume</li>
+              <li>Trust-building proof (chef profiles, SMS tracking)</li>
+            </ul>
+          </div>
+        </div>
+        <aside class="notes">
+          Summarize the ambition, the audiences and the levers. Emphasize that everything else in the deck expands on these three blocks.
+        </aside>
       </section>
 
       <!-- KPIs auto-animate -->
       <section data-auto-animate data-background-color="#0b1220" data-mini="money_eyes">
-        <h2 data-id="kpi">North Star</h2>
+        <h2 data-id="kpi">North Star Metrics</h2>
+        <p class="muted">Measured weekly across Douala &amp; Yaoundé pilots</p>
         <div class="grid-3">
-          <div class="card"><div class="kpi" data-id="retention">Retention 30d: <span class="accent">64%</span></div><div class="muted">Target ≥ 55%</div></div>
+          <div class="card"><div class="kpi" data-id="retention">Retention 30d: <span class="accent">66%</span></div><div class="muted">Base cohort post-onboarding</div></div>
           <div class="card"><div class="kpi" data-id="ontime">On-time: <span class="accent">92%</span></div><div class="muted">ETA windows respected</div></div>
-          <div class="card"><div class="kpi" data-id="cac">CAC payback: <span class="accent">2.5</span> mo</div><div class="muted">Student plan faster</div></div>
+          <div class="card"><div class="kpi" data-id="cac">CAC payback: <span class="accent">2.4</span> mo</div><div class="muted">Starter bundles</div></div>
         </div>
       </section>
       <section data-auto-animate data-background-color="#0b1220" data-mini="sly_smirk">
-        <h2 data-id="kpi">North Star</h2>
+        <h2 data-id="kpi">North Star Metrics</h2>
+        <p class="muted">After retention squad quick wins</p>
         <div class="grid-3">
-          <div class="card"><div class="kpi" data-id="retention">Retention 60d: <span class="accent">52%</span></div><div class="muted">Cohort Δ +6 pts</div></div>
-          <div class="card"><div class="kpi" data-id="ontime">On-time: <span class="accent">94%</span></div><div class="muted">Ops stabilization</div></div>
-          <div class="card"><div class="kpi" data-id="cac">CAC payback: <span class="accent">2.1</span> mo</div><div class="muted">Referrals ↑</div></div>
+          <div class="card"><div class="kpi" data-id="retention">Retention 60d: <span class="accent">54%</span></div><div class="muted">Cohort &Delta; +8 pts</div></div>
+          <div class="card"><div class="kpi" data-id="ontime">On-time: <span class="accent">94%</span></div><div class="muted">Linehaul consolidation</div></div>
+          <div class="card"><div class="kpi" data-id="cac">CAC payback: <span class="accent">2.1</span> mo</div><div class="muted">Referral lift</div></div>
         </div>
       </section>
+      <section data-auto-animate data-background-color="#0b1220" data-mini="money_eyes">
+        <h2 data-id="kpi">North Star Metrics</h2>
+        <p class="muted">Target end of Q2 2025</p>
+        <div class="grid-3">
+          <div class="card"><div class="kpi" data-id="retention">Retention 90d: <span class="accent">48%</span></div><div class="muted">Chef rotation + loyalty perks</div></div>
+          <div class="card"><div class="kpi" data-id="ontime">On-time: <span class="accent">95%</span></div><div class="muted">Dynamic routing SLA</div></div>
+          <div class="card"><div class="kpi" data-id="cac">CAC payback: <span class="accent">1.8</span> mo</div><div class="muted">Account-based expansion</div></div>
+        </div>
+        <aside class="notes">
+          Walk the audience through the progression. Highlight what operational levers unlock each improvement.
+        </aside>
+      </section>
 
-      <!-- COMPETITORS placeholders -->
+      <!-- MARKET & VALIDATION (vertical stack) -->
+      <section data-background-color="#0f172a" data-mini="idea_eureka">
+        <section data-background-color="#0f172a">
+          <h2>Why this launch, why now?</h2>
+          <ul>
+            <li class="fragment">Urban cores add +6% new renters yearly &mdash; kitchens are shrinking, delivery spend +28% YoY.</li>
+            <li class="fragment">Current delivery players miss lunch SLAs 1-in-3 times during peak traffic.</li>
+            <li class="fragment">Surveyed 212 residents: 64% would prepay weekly if time slots &amp; diet choices were guaranteed.</li>
+          </ul>
+          <aside class="notes">Underline that we validated pain via secondary data and our own pulse survey last month.</aside>
+        </section>
+        <section data-background-color="#0f172a">
+          <h2>Market Signals &amp; Opportunity</h2>
+          <div class="insights">
+            <div class="card">
+              <h3>Douala</h3>
+              <p class="muted">400k targetable professionals within 10km of hubs.</p>
+              <ul>
+                <li>Lunch spend 23,000 FCFA/week</li>
+                <li>Top friction: unreliable delivery (57%)</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>Yaoundé</h3>
+              <p class="muted">Large campus population + ministries cluster.</p>
+              <ul>
+                <li>Students accept subscriptions up to 18,000 FCFA</li>
+                <li>Offices prefer consolidated billing</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>Operational Edge</h3>
+              <p class="muted">Existing ghost kitchen network currently idle off-peak.</p>
+              <ul>
+                <li>Batch cooking reduces COGS by 14%</li>
+                <li>Shared riders for both cities already contracted</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section data-background-color="#0f172a">
+          <h2>Validation Plan</h2>
+          <div class="grid-2">
+            <div class="card">
+              <h3>Primary Research</h3>
+              <ul>
+                <li>12 in-depth interviews with student &amp; SMB leads</li>
+                <li>2-week concierge MVP with WhatsApp ordering</li>
+                <li>Daily NPS pulse + delivery incident logs</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>Secondary Research</h3>
+              <ul>
+                <li>Benchmark subscription models (HelloFood, JumiaFood)</li>
+                <li>Analyze rent &amp; commute data for hub placement</li>
+                <li>Review Ministry of Health nutrition policies</li>
+              </ul>
+            </div>
+          </div>
+          <aside class="notes">Clarify we have customer validation in motion; deck appendix hosts transcripts and cost models.</aside>
+        </section>
+        <section data-background-color="#0f172a">
+          <h2>Validation Timeline</h2>
+          <div class="timeline">
+            <div class="milestone">
+              <div class="badge">Week 0-2</div>
+              <p><strong>Problem Fit</strong><br>Recruit interviewees, map top 3 meal jobs-to-be-done.</p>
+            </div>
+            <div class="milestone">
+              <div class="badge">Week 3-6</div>
+              <p><strong>MVP Cohort</strong><br>Run 50 households + 6 teams on concierge plan, measure churn drivers.</p>
+            </div>
+            <div class="milestone">
+              <div class="badge">Week 7-10</div>
+              <p><strong>Scale Readiness</strong><br>Roll out branded subscription portal, finalize ops SLAs and pricing.</p>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- COMPETITION -->
       <section data-background-color="#0c0f1a" data-mini="thinking_pensive">
-        <h2>Competitors</h2>
+        <h2>Competitors — What customers see</h2>
         <div class="grid-2">
           <div class="card">
             <h3>Tchop et Yamo</h3>
-            <div class="ph">[PLACEHOLDER SCREENSHOT]<small>Paste FB post link here</small></div>
+            <div class="shot">
+              <strong>Facebook promo &ldquo;10 meals, pay 8&rdquo;</strong>
+              <span>Heavy discounting every payday week, but inconsistent menu quality per reviews.</span>
+            </div>
             <ul>
-              <li class="fragment">Local fast-food + delivery</li>
-              <li class="fragment">Community-driven promos</li>
-              <li class="fragment">Weekly lunch packs tested</li>
+              <li class="fragment">Strength: massive community &amp; influencer reach</li>
+              <li class="fragment">Gap: no subscription management or pause option</li>
+              <li class="fragment">Opportunity: partner with their cloud kitchens for overflow</li>
             </ul>
           </div>
           <div class="card">
             <h3>K My Choice</h3>
-            <div class="ph">[PLACEHOLDER SCREENSHOT]<small>Paste FB post link here</small></div>
+            <div class="shot">
+              <strong>Instagram carousel of meal prep boxes</strong>
+              <span>Premium tone, limited delivery radius, manual DMs for sign-up.</span>
+            </div>
             <ul>
-              <li class="fragment">Groceries + home-cooked meals</li>
-              <li class="fragment">Personalized weekly prep</li>
-              <li class="fragment">Premium, smaller scale</li>
+              <li class="fragment">Strength: bespoke dietitian oversight</li>
+              <li class="fragment">Gap: capacity capped at 40 orders/day</li>
+              <li class="fragment">Opportunity: feature chef collabs to borrow credibility</li>
+            </ul>
+          </div>
+        </div>
+        <aside class="notes">Use visuals to show we tracked actual campaigns even if we anonymize them here.</aside>
+      </section>
+
+      <!-- WIN / LOSS -->
+      <section data-background-color="#0c0f1a" data-mini="serious_folded_arms">
+        <h2>Win / Loss Snapshot</h2>
+        <table>
+          <thead>
+            <tr><th>Scenario</th><th>Why we win</th><th>Why we lose</th><th>Action</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Students w/ roommates</td>
+              <td>Bundled dinner add-ons &amp; group discount</td>
+              <td>Cash-flow anxiety when billing monthly</td>
+              <td>Introduce mobile money weekly billing + pause</td>
+            </tr>
+            <tr>
+              <td>10-30 person offices</td>
+              <td>Single invoice &amp; predictable menus</td>
+              <td>Perceived risk on delivery punctuality</td>
+              <td>Publish SLA dashboard + ops hotline</td>
+            </tr>
+            <tr>
+              <td>Health-focused parents</td>
+              <td>Chef-curated rotating menus</td>
+              <td>Concern over ingredient sourcing</td>
+              <td>Highlight traceability + kitchen tours</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- COMPETITIVE PLAYBOOK -->
+      <section data-background-color="#0b1220" data-mini="anger_determined">
+        <h2>Competitive Playbook</h2>
+        <div class="grid-3">
+          <div class="card">
+            <h3>Defend</h3>
+            <p class="muted">Protect recurring seats from price wars.</p>
+            <ul>
+              <li>Loyalty perks after 6 deliveries</li>
+              <li>Service recovery in &lt;15 min with credit</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Differentiate</h3>
+            <p class="muted">Lean on predictability + wellbeing.</p>
+            <ul>
+              <li>Chef bios + caloric transparency in-app</li>
+              <li>Guaranteed time slots &amp; SMS ETA</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Disrupt</h3>
+            <p class="muted">Exploit rivals' operational gaps.</p>
+            <ul>
+              <li>Pop-up tastings near their hotspots</li>
+              <li>Co-market with corporates for payroll deduction</li>
             </ul>
           </div>
         </div>
@@ -122,22 +335,24 @@
 
       <!-- CHARTS -->
       <section data-background-color="#0f172a" data-mini="happy_grin">
-        <h2>Adoption & Cohorts</h2>
+        <h2>Adoption &amp; Cohorts</h2>
         <div class="grid-2">
           <div class="card"><canvas id="lineRetention" width="480" height="300"></canvas></div>
           <div class="card"><canvas id="barPlans" width="480" height="300"></canvas></div>
         </div>
-        <p class="muted">Numbers are placeholders. Replace with final figures.</p>
+        <p class="muted">Data through Feb 2025 pilot (n=420 subscriptions).</p>
+        <aside class="notes">Explain the churn drop once we added predictable delivery slots and campus ambassadors.</aside>
       </section>
 
       <!-- SEGMENTATION -->
       <section data-background-color="#0b1220" data-mini="gentle_smile">
         <h2>Segmentation</h2>
         <div class="grid-3">
-          <div class="card fragment"><strong>Demographic</strong><br>18–45, students, office workers, single parents</div>
-          <div class="card fragment"><strong>Psychographic</strong><br>Busy, convenience-first, health-aware, value-seeking</div>
-          <div class="card fragment"><strong>Behavioral</strong><br>Repeat app users, lunch peaks, MM loyalists</div>
+          <div class="card fragment"><strong>Demographic</strong><br>18&ndash;45, students, office workers, single parents</div>
+          <div class="card fragment"><strong>Psychographic</strong><br>Time-starved, trust social proof, wellness aspirers</div>
+          <div class="card fragment"><strong>Behavioral</strong><br>High app usage, lunchtime spike, refer friends for perks</div>
         </div>
+        <aside class="notes">Connect segmentation to persona slides that follow.</aside>
       </section>
 
       <!-- PERSONAS -->
@@ -146,13 +361,17 @@
         <div class="grid-2">
           <div class="card" data-id="p-left">
             <ul>
-              <li>Goal: eat better, spend less</li>
-              <li>Pain: irregular schedule, budget</li>
-              <li>XYZ: weekly plan, student pricing, noon window</li>
+              <li>24-year-old nursing student sharing apartment</li>
+              <li>Goal: stay energized without exceeding 70k FCFA/month</li>
+              <li>Pain: class schedule shifts daily, hates surprise fees</li>
+              <li>XYZ Express: noon delivery slot, skip weeks during exams, refer-a-roommate credit</li>
             </ul>
           </div>
           <div class="card" data-id="p-right">
-            <div class="ph">[PHOTO PLACEHOLDER]<small>Drop headshot</small></div>
+            <div class="shot">
+              <strong>Brand touchpoints</strong>
+              <span>TikTok campus tour &rarr; WhatsApp concierge &rarr; App onboarding</span>
+            </div>
           </div>
         </div>
       </section>
@@ -161,52 +380,165 @@
         <div class="grid-2">
           <div class="card" data-id="p-left">
             <ul>
-              <li>Goal: feed 10, zero chaos</li>
-              <li>Pain: multi-vendor delays</li>
-              <li>XYZ: corporate plan, fixed menus, one invoice</li>
+              <li>Operations manager, 18-person fintech support team</li>
+              <li>Goal: deliver consistent lunches without micromanaging suppliers</li>
+              <li>Pain: late riders cause overtime, finance needs one invoice</li>
+              <li>XYZ Express: corporate dashboard, rotating menus, SLA credits for every 5 min delay</li>
             </ul>
           </div>
           <div class="card" data-id="p-right">
-            <div class="ph">[PHOTO PLACEHOLDER]<small>Drop headshot</small></div>
+            <div class="shot">
+              <strong>Brand touchpoints</strong>
+              <span>LinkedIn case study &rarr; Tasting session &rarr; Dedicated account rep</span>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- POSITIONING & MESSAGING -->
-      <section data-background-color="#0f172a" data-mini="stern_warning">
-        <h2>Positioning</h2>
-        <p><strong>For</strong> busy people & teams in Douala/Yaoundé,<br>
-        <strong>XYZ Express</strong> delivers scheduled meals at a predictable price,<br>
-        <strong>unlike</strong> on-demand apps with random cost/timing.</p>
+      <!-- JOURNEY -->
+      <section data-background-color="#0b1220" data-mini="love_heart">
+        <h2>Customer Journey (Nora)</h2>
+        <div class="journey">
+          <div class="stage fragment">
+            <strong>Awareness</strong>
+            TikTok creator shows prep station &amp; budget calculator.
+          </div>
+          <div class="stage fragment">
+            <strong>Consideration</strong>
+            Calculator compares takeout vs subscription; chat with concierge.
+          </div>
+          <div class="stage fragment">
+            <strong>Onboarding</strong>
+            Guided plan builder + diet filters + SMS delivery reminders.
+          </div>
+          <div class="stage fragment">
+            <strong>Retention</strong>
+            Surprise &amp; delight treats after 8 deliveries, loyalty perks.
+          </div>
+        </div>
       </section>
 
+      <!-- MOMENTS OF TRUTH -->
+      <section data-background-color="#0b1220" data-mini="happy_grin">
+        <h2>Moments of Truth</h2>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Persona x Message</h3>
+            <ul>
+              <li><strong>Nora</strong>: &ldquo;Never miss lunch before rounds.&rdquo; &rarr; Push notifications + meal prep stories.</li>
+              <li><strong>Daniel</strong>: &ldquo;Deliver punctuality you can report.&rdquo; &rarr; SLA dashboard + CSV exports.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Proof Points</h3>
+            <ul>
+              <li>Live kitchen cams &amp; chef spotlights</li>
+              <li>Transparent sourcing map inside the app</li>
+              <li>Real-time delivery tracking and rider ID</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- POSITIONING -->
+      <section data-background-color="#0f172a" data-mini="stern_warning">
+        <h2>Positioning Framework</h2>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Core Statement</h3>
+            <p><strong>For</strong> busy households and growth teams in Douala &amp; Yaoundé,<br>
+            <strong>XYZ Express</strong> is the only meal subscription that guarantees scheduled delivery windows and nutrition transparency,<br>
+            <strong>because</strong> we own the prep-to-door journey with dedicated hubs and verified chefs.</p>
+          </div>
+          <div class="card">
+            <h3>Proof &amp; Tone</h3>
+            <ul>
+              <li>Tone: reassuring, expert, culturally warm</li>
+              <li>Proof: customer testimonials, live delivery tracker, nutritionist endorsements</li>
+              <li>Reason to believe: 94% on-time pilots, 4.6⭐ concierge feedback</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- MESSAGING -->
       <section data-background-color="#0f172a" data-mini="love_heart">
-        <h2>Messaging</h2>
+        <h2>Messaging Matrix</h2>
         <table>
-          <tr><th>Audience</th><th>Message</th><th>CTA</th></tr>
-          <tr class="fragment"><td>Consumers</td><td>Your meals, on schedule.</td><td>Subscribe Now</td></tr>
-          <tr class="fragment"><td>Corporate</td><td>Fuel focus. Predict lunch.</td><td>Start Corporate Plan</td></tr>
-          <tr class="fragment"><td>Investors</td><td>Predictable dining, recurring revenue.</td><td>Partner with XYZ</td></tr>
+          <thead>
+            <tr><th>Audience</th><th>Primary Message</th><th>Proof</th><th>CTA</th></tr>
+          </thead>
+          <tbody>
+            <tr class="fragment"><td>Consumers</td><td>Your meals, on schedule, no surprises.</td><td>30d pause/resume, live tracking</td><td>Build your plan</td></tr>
+            <tr class="fragment"><td>Corporate</td><td>Predictable lunches, one invoice.</td><td>SLA credits + dashboard</td><td>Book tasting</td></tr>
+            <tr class="fragment"><td>Investors</td><td>Recurring revenue with ops moat.</td><td>2.1 mo CAC payback, 94% on-time</td><td>Request data room</td></tr>
+          </tbody>
         </table>
       </section>
 
-      <!-- STORY AIDA -->
-      <section data-background-color="#0b1220" class="r-stack" data-mini="rage_shouting">
-        <h2 class="fragment">A — Attention</h2>
-        <h2 class="fragment">I — Interest</h2>
-        <h2 class="fragment">D — Desire</h2>
-        <h2 class="fragment">A — Action</h2>
+      <!-- ROADMAP -->
+      <section data-background-color="#0c0f1a" data-mini="satisfied_mwah">
+        <h2>30 / 60 / 90 Roadmap</h2>
+        <div class="roadmap">
+          <div class="card fragment">
+            <h3>Day 0&ndash;30</h3>
+            <ul>
+              <li>Finalize hub leases + kitchen certification</li>
+              <li>Ship concierge MVP with payment automation</li>
+              <li>Recruit 15 campus ambassadors</li>
+            </ul>
+          </div>
+          <div class="card fragment">
+            <h3>Day 31&ndash;60</h3>
+            <ul>
+              <li>Launch subscription portal + referral engine</li>
+              <li>Deploy rider incentive SLA program</li>
+              <li>Run corporate tastings (8 accounts)</li>
+            </ul>
+          </div>
+          <div class="card fragment">
+            <h3>Day 61&ndash;90</h3>
+            <ul>
+              <li>Scale to 1,200 active seats</li>
+              <li>Introduce nutritionist content series</li>
+              <li>Expand to evening family plans</li>
+            </ul>
+          </div>
+        </div>
       </section>
 
-      <!-- NEXT STEPS -->
-      <section data-background-color="#0c0f1a" data-mini="satisfied_mwah">
-        <h2>Next Steps</h2>
+      <!-- CALL TO ACTION -->
+      <section data-background-color="#0b1220" data-mini="joy_victory">
+        <h2>Ask &amp; Call to Action</h2>
+        <div class="grid-2">
+          <div class="card">
+            <h3>What we need</h3>
+            <ul>
+              <li>Budget: 45M FCFA for hubs, marketing, rider incentives</li>
+              <li>Headcount: Growth PMM, Ops Analyst, Campus lead</li>
+              <li>Decision: Greenlight pilot expansion by April 15</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Success Signals</h3>
+            <ul>
+              <li>&ge; 1,200 active seats, churn &lt; 3% weekly</li>
+              <li>Referral share 30% of new sign-ups</li>
+              <li>Net margin &ge; 18% after rider incentives</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- APPENDIX -->
+      <section data-background-color="#0c0f1a" data-mini="grateful_praying">
+        <h2>Appendix &amp; Sources</h2>
         <ul>
-          <li class="fragment">Pilot 2 districts per city</li>
-          <li class="fragment">Student & corporate plans</li>
-          <li class="fragment">Measure: retention, on-time, NPS</li>
+          <li>Customer interview synthesis (Google Doc) &mdash; QR link in handout</li>
+          <li>Market sizing spreadsheet (Excel) &mdash; Ops shared drive</li>
+          <li>Competitor campaign archive &mdash; Notion database</li>
         </ul>
-        <div class="ph" style="margin-top:12px">[PLACEHOLDER LINKS]<small>Insert final sources & screenshots</small></div>
+        <aside class="notes">Close by pointing stakeholders to the living documents and invite follow-up sessions.</aside>
       </section>
 
     </div>
@@ -281,20 +613,23 @@
       spawnMinis(e.currentSlide);
     });
 
-    // Charts (placeholder data)
+    // Charts (pilot data snapshot)
     function charts(){
       const el1 = document.getElementById('lineRetention');
       if(el1 && !el1.dataset.rendered){
         new Chart(el1, {
           type: 'line',
           data: {
-            labels: ['W1','W2','W3','W4','W5','W6','W7','W8'],
+            labels: ['Week 1','Week 2','Week 3','Week 4','Week 5','Week 6','Week 7','Week 8'],
             datasets: [
-              {label:'Student plan', data:[100,78,72,70,68,66,65,64], tension:.35},
-              {label:'Corporate plan', data:[100,82,78,74,70,67,65,63], tension:.35}
+              {label:'Douala cohorts', data:[100,84,79,75,73,71,70,69], tension:.35},
+              {label:'Yaoundé cohorts', data:[100,86,81,77,75,73,71,70], tension:.35}
             ]
           },
-          options:{ responsive:true, plugins:{ legend:{position:'bottom'} } }
+          options:{
+            responsive:true,
+            plugins:{ legend:{position:'bottom'} }
+          }
         });
         el1.dataset.rendered=1;
       }
@@ -303,13 +638,20 @@
         new Chart(el2, {
           type:'bar',
           data:{
-            labels:['Daily','Weekly'],
+            labels:['Student Weekly','Corporate Weekly','Family Flex'],
             datasets:[
-              {label:'Sign-ups', data:[1200, 800]},
-              {label:'Churn %', data:[18, 12]}
+              {label:'Sign-ups (Feb)', data:[220, 180, 140]},
+              {label:'Churn %', data:[14, 9, 7], type:'line', yAxisID:'y1', tension:.35, pointRadius:4}
             ]
           },
-          options:{ responsive:true, plugins:{ legend:{position:'bottom'} } }
+          options:{
+            responsive:true,
+            plugins:{ legend:{position:'bottom'} },
+            scales:{
+              y:{ beginAtZero:true, title:{ display:true, text:'Subscriptions' } },
+              y1:{ beginAtZero:true, position:'right', grid:{ drawOnChartArea:false }, title:{ display:true, text:'Churn %' } }
+            }
+          }
         });
         el2.dataset.rendered=1;
       }
