@@ -3,210 +3,609 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>XYZ Express — Douala & Yaoundé Launch — Michel T.</title>
+  <title>XYZ Express — Go-To-Market Plan</title>
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/league.css" id="theme">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/white.css" id="theme">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --accent:#ff3366;       /* project accent */
-      --blue:#2ba0ff;         /* Michel touch */
-      --bg1:#0c0f1a;
-      --bg2:#0f172a;
-      --bg3:#0b1220;
-      --surface: rgba(255,255,255,.06);
-      --stroke: rgba(255,255,255,.10);
-      --muted:#9aa4b2;
+    :root {
+      --ink:#21170e;
+      --muted:#6d6156;
+      --orange:#ff7a21;
+      --orange-dark:#d75a11;
+      --peach:#ffd9b5;
+      --sun:#ffd166;
+      --cream:#fff5eb;
+      --pearl:#ffffff;
+      --sand:#f8e7d4;
+      --stroke:rgba(215,90,17,.22);
+      --shadow:0 18px 48px rgba(215,90,17,.12);
     }
-    .reveal { font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial; }
-    .reveal h1, .reveal h2, .reveal h3 { letter-spacing:-.02em; }
-    .accent { color: var(--accent); }
-    .blue { color: var(--blue); }
-    .pill { display:inline-block; padding:.25em .6em; border-radius:999px; border:1px solid var(--stroke); font-size:.6em; color:#e5e7eb; }
-    .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
-    .grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
-    .card { background: var(--surface); border:1px solid var(--stroke); padding:16px; border-radius:14px; }
-    .kpi { font-size:2.2rem; font-weight:800; }
+    body { background:var(--pearl); }
+    .reveal { font-family:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif; color:var(--ink); font-size:24px; }
+    .reveal .slides { text-align:left; }
+    .reveal section { padding:0 10vw; display:flex; flex-direction:column; gap:28px; }
+    .reveal h1, .reveal h2, .reveal h3 { font-weight:700; letter-spacing:-.01em; color:var(--ink); }
+    .reveal h1 { font-size:2em; max-width:16ch; line-height:1.08; }
+    .reveal h2 { font-size:1.55em; margin-bottom:12px; }
+    .reveal h3 { font-size:1.05em; margin-bottom:10px; }
+    .reveal p, .reveal li { line-height:1.55; max-width:68ch; }
+    .reveal ul { padding-left:1.1em; }
+    .tag { display:inline-flex; align-items:center; gap:8px; text-transform:uppercase; font-size:.55em; letter-spacing:.18em; background:rgba(255,122,33,.12); border:1px solid rgba(255,122,33,.35); color:var(--orange-dark); padding:.45em .9em; border-radius:999px; }
+    .btn-link { display:inline-flex; align-items:center; gap:6px; font-weight:600; color:var(--orange-dark); text-decoration:none; border-bottom:2px solid transparent; padding-bottom:2px; }
+    .btn-link:hover { border-bottom-color:var(--orange-dark); }
+    .grid-2 { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:36px; align-items:start; }
+    .grid-3 { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:30px; align-items:start; }
+    .card { background:rgba(255,255,255,.95); border:1px solid var(--stroke); border-radius:28px; padding:28px; box-shadow:var(--shadow); }
+    .card img { width:100%; border-radius:20px; object-fit:cover; margin-top:12px; box-shadow:0 16px 28px rgba(0,0,0,.08); }
+    .soft { background:rgba(255,244,233,.9); }
     .muted { color:var(--muted); font-size:.7em; }
-    .mini{ width: var(--mini-size,92px); position:absolute; z-index:9; opacity:0; filter: drop-shadow(0 8px 18px rgba(0,0,0,.35)); animation-fill-mode:both; }
-    .mini[data-pos="tl"]{ top:20px; left:20px; } .mini[data-pos="tr"]{ top:20px; right:20px; }
-    .mini[data-pos="bl"]{ bottom:20px; left:20px; } .mini[data-pos="br"]{ bottom:20px; right:20px; }
-    .mini[data-pos="tc"]{ top:14px; left:50%; transform:translateX(-50%); }
-    .mini[data-pos="bc"]{ bottom:14px; left:50%; transform:translateX(-50%); }
-    .mini[data-pos="cr"]{ top:50%; right:20px; transform:translateY(-50%); }
-
-    /* subtle blue gradient overlays per section if needed */
-    .bg-blue::before{
-      content:""; position:absolute; inset:0;
-      background: radial-gradient(1000px 400px at 80% 20%, rgba(43,160,255,.12), transparent 60%);
-      pointer-events:none;
-    }
-
-    /* Animations */
-    @keyframes fadeIn { from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:translateY(0)} }
-    @keyframes pop { 0%{opacity:0; transform:scale(.7)} 70%{opacity:1; transform:scale(1.05)} 100%{transform:scale(1)} }
-    @keyframes slideL { 0%{opacity:0; transform:translateX(24px)} 100%{opacity:1; transform:translateX(0)} }
-    @keyframes shake { 0%{transform:translateX(0)} 25%{transform:translateX(-6px)} 50%{transform:translateX(6px)} 75%{transform:translateX(-3px)} 100%{transform:translateX(0)}}
-    .fade-in{ animation: fadeIn .7s ease-out forwards; }
-    .pop{ animation: pop .6s ease-out forwards; }
-    .slide-l{ animation: slideL .6s ease-out forwards; }
-    .shake{ animation: fadeIn .25s ease-out forwards, shake .5s ease-in .25s; }
-
-    .ph { border:2px dashed var(--stroke); border-radius:12px; padding:14px; text-align:center; color:#94a3b8; }
-    .ph small { display:block; margin-top:6px; font-size:.65em; }
+    table { width:100%; border-collapse:collapse; font-size:.7em; letter-spacing:.01em; }
+    table th, table td { padding:14px 18px; border-bottom:1px solid rgba(229,93,19,.16); text-align:left; }
+    table th { text-transform:uppercase; font-weight:600; font-size:.75em; color:var(--orange-dark); }
+    table tbody tr:last-child td { border-bottom:none; }
+    .stack { background:rgba(255,255,255,.92); border-radius:22px; overflow:hidden; box-shadow:var(--shadow); border:1px solid var(--stroke); }
+    .accent { color:var(--orange-dark); }
+    .pill { display:inline-flex; align-items:center; gap:6px; background:rgba(255,209,102,.35); border-radius:999px; padding:.4em 1em; font-size:.65em; }
+    .timeline { display:flex; flex-direction:column; gap:24px; }
+    .timeline .milestone { background:rgba(255,255,255,.95); border-radius:24px; border:1px solid var(--stroke); padding:22px; box-shadow:var(--shadow); }
+    .timeline .badge { display:inline-block; font-size:.6em; text-transform:uppercase; letter-spacing:.14em; color:var(--orange-dark); margin-bottom:12px; }
+    .tiles { display:grid; gap:18px; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); }
+    .tiles .tile { border-radius:20px; padding:22px; border:1px solid rgba(229,93,19,.18); background:rgba(255,255,255,.94); box-shadow:var(--shadow); }
+    .tiles .tile strong { display:block; font-size:.9em; margin-bottom:10px; color:var(--orange-dark); }
+    .journey { display:grid; gap:24px; grid-template-columns:repeat(4,minmax(0,1fr)); font-size:.78em; }
+    .journey .stage { background:rgba(255,255,255,.95); border-radius:20px; border:1px solid var(--stroke); padding:20px; box-shadow:var(--shadow); }
+    .journey .stage span { display:block; margin-top:12px; color:var(--muted); font-size:.92em; }
+    .impact-table { background:rgba(255,255,255,.92); border:1px solid var(--stroke); border-radius:22px; overflow:hidden; box-shadow:var(--shadow); }
+    .impact-table table { margin:0; }
+    .story-grid { display:grid; gap:28px; grid-template-columns:repeat(2,minmax(0,1fr)); align-items:start; }
+    .story-card { background:rgba(255,255,255,.95); border-radius:28px; padding:26px; border:1px solid rgba(215,90,17,.22); box-shadow:var(--shadow); display:flex; flex-direction:column; gap:12px; }
+    .story-card img { width:100%; border-radius:20px; object-fit:cover; box-shadow:0 16px 28px rgba(0,0,0,.08); }
+    .story-step { font-size:.78em; color:var(--muted); }
+    .roadmap { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:28px; }
+    .roadmap .card h3 { font-size:.95em; margin-bottom:16px; }
+    .roadmap ul { padding-left:1em; font-size:.78em; }
+    .list-clean { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:12px; }
+    .list-clean li { display:flex; justify-content:space-between; gap:18px; font-size:.75em; }
+    .list-clean span { color:var(--muted); }
+    .transition { font-size:1.1em; color:var(--muted); max-width:28ch; }
+    .mini{ width:var(--mini-size,96px); position:absolute; filter:drop-shadow(0 12px 24px rgba(0,0,0,.12)); }
+    .mini[data-pos="tl"]{ top:28px; left:32px; }
+    .mini[data-pos="tr"]{ top:28px; right:32px; }
+    .mini[data-pos="bl"]{ bottom:28px; left:32px; }
+    .mini[data-pos="br"]{ bottom:28px; right:32px; }
+    .mini[data-pos="tc"]{ top:24px; left:50%; transform:translateX(-50%); }
+    .mini[data-pos="bc"]{ bottom:24px; left:50%; transform:translateX(-50%); }
+    .section-label { text-transform:uppercase; letter-spacing:.24em; font-size:.55em; color:var(--orange-dark); margin-bottom:12px; display:block; }
+    .intro-card { display:flex; flex-direction:column; gap:24px; max-width:640px; }
+    .intro-brand { display:flex; align-items:center; gap:16px; }
+    .intro-brand img { width:82px; height:82px; object-fit:contain; }
+    .intro-meta { display:flex; flex-direction:column; gap:10px; font-size:.7em; color:var(--muted); }
+    .contact-grid { display:grid; gap:10px; font-size:.7em; color:var(--muted); }
+    .contact-grid span { display:flex; flex-direction:column; gap:2px; }
   </style>
 </head>
 <body>
   <div class="reveal">
     <div class="slides">
 
-      <!-- COVER -->
-      <section class="bg-blue" data-background-color="#0c0f1a" data-mini="cool_shades" data-transition="convex">
-        <h1><span class="accent">XYZ Express</span> Meal Subscription</h1>
-        <p class="muted">Douala & Yaoundé — Product Marketing Strategy</p>
-        <p class="pill">By <span class="blue">Michel T.</span></p>
+      <section data-background-color="#ffffff" data-mini="founder_tl,founder_tr,founder_bl,founder_br">
+        <div class="intro-card">
+          <div class="intro-brand">
+            <img src="https://res.cloudinary.com/diuvvyatm/image/upload/v1761405137/Logo-XYZ-Express_zzc3pt.png" alt="XYZ Express logo">
+            <div>
+              <span class="tag">AltSchool Africa · Product Marketing · First Semester Exam · 2025</span>
+              <h1>XYZ Express Meal Subscription Plan</h1>
+            </div>
+          </div>
+          <p>Designing a predictable, joyful meal subscription for Douala and Yaounde that proves product-market fit before launch.</p>
+          <div class="intro-meta">
+            <span><strong>Submitted by:</strong> TEGOFACK JEUKENG Ange Michel</span>
+            <span><strong>Exam context:</strong> AltSchool Africa — Product Marketing First Semester Assessment</span>
+            <a class="btn-link" href="index.html" target="_blank" rel="noopener">View on the web ↗</a>
+          </div>
+          <div class="contact-grid">
+            <span><strong>Personal email</strong> jeukengange@gmail.com</span>
+            <span><strong>Professional email</strong> bonjour@micheltegofack.com</span>
+          </div>
+        </div>
+        <aside class="notes">Welcome the evaluators, highlight that this web-first version will be exported to PDF, and point to the View on the web link for the interactive format.</aside>
       </section>
 
-      <!-- OVERVIEW -->
-      <section data-background-color="#0f172a" data-mini="idea_eureka" data-transition="convex">
-        <h2>Why this launch, why now?</h2>
-        <ul>
-          <li class="fragment">Urban growth, young, mobile-first</li>
-          <li class="fragment">Delivery pain: traffic, reliability, trust</li>
-          <li class="fragment">Subscription appetite when value is clear</li>
-        </ul>
-      </section>
-
-      <!-- KPIs auto-animate -->
-      <section data-auto-animate data-background-color="#0b1220" data-mini="money_eyes">
-        <h2 data-id="kpi">North Star</h2>
-        <div class="grid-3">
-          <div class="card"><div class="kpi" data-id="retention">Retention 30d: <span class="accent">64%</span></div><div class="muted">Target ≥ 55%</div></div>
-          <div class="card"><div class="kpi" data-id="ontime">On-time: <span class="accent">92%</span></div><div class="muted">ETA windows respected</div></div>
-          <div class="card"><div class="kpi" data-id="cac">CAC payback: <span class="accent">2.5</span> mo</div><div class="muted">Student plan faster</div></div>
+      <section data-background-color="#fff5eb">
+        <span class="section-label">overview</span>
+        <h2>What we will cover</h2>
+        <div class="grid-2">
+          <div>
+            <ul>
+              <li>Step 1 — Market research &amp; product clarity</li>
+              <li>Step 2 — Segmentation &amp; persona development</li>
+              <li>Step 3 — Positioning, value propositions &amp; messaging</li>
+              <li>Step 4 — Launch roadmap, resources &amp; success criteria</li>
+            </ul>
+          </div>
+          <div class="card soft">
+            <h3>Success lens</h3>
+            <p>Design a hybrid meal subscription that balances food quality, predictable delivery, and accessible pricing for urban households and growth-minded teams.</p>
+          </div>
         </div>
       </section>
-      <section data-auto-animate data-background-color="#0b1220" data-mini="sly_smirk">
-        <h2 data-id="kpi">North Star</h2>
-        <div class="grid-3">
-          <div class="card"><div class="kpi" data-id="retention">Retention 60d: <span class="accent">52%</span></div><div class="muted">Cohort Δ +6 pts</div></div>
-          <div class="card"><div class="kpi" data-id="ontime">On-time: <span class="accent">94%</span></div><div class="muted">Ops stabilization</div></div>
-          <div class="card"><div class="kpi" data-id="cac">CAC payback: <span class="accent">2.1</span> mo</div><div class="muted">Referrals ↑</div></div>
-        </div>
-      </section>
 
-      <!-- COMPETITORS placeholders -->
-      <section data-background-color="#0c0f1a" data-mini="thinking_pensive">
-        <h2>Competitors</h2>
+      <section data-background-color="#fff1e1">
+        <span class="section-label">step 1 · market research & product clarity</span>
+        <h2>Problem framing</h2>
         <div class="grid-2">
           <div class="card">
-            <h3>Tchop et Yamo</h3>
-            <div class="ph">[PLACEHOLDER SCREENSHOT]<small>Paste FB post link here</small></div>
+            <h3>Core tension</h3>
+            <p>Douala &amp; Yaounde residents want nutritious meals that arrive when promised, yet existing delivery apps focus on a-la-carte convenience, not predictability.</p>
             <ul>
-              <li class="fragment">Local fast-food + delivery</li>
-              <li class="fragment">Community-driven promos</li>
-              <li class="fragment">Weekly lunch packs tested</li>
+              <li>Kitchen space is shrinking while workdays extend beyond 6pm.</li>
+              <li>Parents &amp; teams spend excess time coordinating meals.</li>
             </ul>
           </div>
           <div class="card">
-            <h3>K My Choice</h3>
-            <div class="ph">[PLACEHOLDER SCREENSHOT]<small>Paste FB post link here</small></div>
+            <h3>Opportunity hypothesis</h3>
+            <p>XYZ Express can own the &ldquo;set-and-forget&rdquo; weekly meal routine by blending subscription logistics with cultural menus and flexible billing.</p>
+            <p class="muted">The next slides detail how we will validate demand before scaling.</p>
+          </div>
+        </div>
+      </section>
+
+      <section data-background-color="#fff1e1">
+        <h2>Defining the product type</h2>
+        <div class="grid-2">
+          <div class="card soft">
+            <h3>Options evaluated</h3>
+            <table>
+              <thead><tr><th>Type</th><th>Description</th><th>Risks</th></tr></thead>
+              <tbody>
+                <tr><td>Physical subscription</td><td>Pre-cooked meals delivered daily from central kitchens.</td><td>High capex &amp; limited menu customization.</td></tr>
+                <tr><td>Digital-only</td><td>Meal planning app with partner restaurants fulfilling orders.</td><td>No control over quality or service level.</td></tr>
+                <tr><td>Hybrid <span class="accent">(selected)</span></td><td>XYZ-owned menus, prep hubs, and scheduled delivery; digital portal for plan management.</td><td>Requires tightly run operations + concierge onboarding.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card">
+            <h3>Why hybrid wins</h3>
             <ul>
-              <li class="fragment">Groceries + home-cooked meals</li>
-              <li class="fragment">Personalized weekly prep</li>
-              <li class="fragment">Premium, smaller scale</li>
+              <li>Guarantees delivery windows while still offering digital plan controls.</li>
+              <li>Enables upsells (family dinners, office snacks) without extra rider loops.</li>
+              <li>Supports flexible billing (weekly mobile money, monthly invoice).</li>
+            </ul>
+            <p class="muted">Decision gate: secure two micro-fulfillment hubs and pre-vetted riders before launch.</p>
+          </div>
+        </div>
+      </section>
+
+      <section data-background-color="#fff1e1">
+        <h2>Demand validation research plan</h2>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Primary methods</h3>
+            <ul>
+              <li><strong>12 user interviews</strong> — Student nurses, young parents, SMB ops leads.<br><span class="muted">Outcome: priority meal jobs-to-be-done &amp; willingness-to-pay bands.</span></li>
+              <li><strong>Concierge MVP (WhatsApp)</strong> — 4-week pilot, manual routing.<br><span class="muted">Outcome: track readiness to prepay; success if ≥70% complete 2 cycles.</span></li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Secondary methods</h3>
+            <ul>
+              <li><strong>Desk research</strong> — FAO, GSMA, McKinsey food delivery reports.<br><span class="muted">Outcome: quantify urban meal spend &amp; growth forecasts.</span></li>
+              <li><strong>Competitor audit</strong> — Tchop et Yamo, K My Choice, Glovo.<br><span class="muted">Outcome: map pricing, service gaps, loyalty levers.</span></li>
+            </ul>
+          </div>
+        </div>
+        <aside class="notes">Highlight that validation combines live touchpoints with market data, fulfilling the AltSchool prompt: two primary and two secondary methods.</aside>
+      </section>
+
+      <section data-background-color="#fff1e1">
+        <h2>Research calendar &amp; success gates</h2>
+        <div class="timeline">
+          <div class="milestone">
+            <span class="badge">Weeks 1–2 · Discovery</span>
+            <p>Run interviews, synthesize pain themes, define adoption hypotheses.</p>
+            <p class="muted">Gate: 3 recurring pains validated across ≥2 segments.</p>
+          </div>
+          <div class="milestone">
+            <span class="badge">Weeks 3–5 · Concierge pilot</span>
+            <p>Operate WhatsApp meal plan with 20 households + 5 offices.</p>
+            <p class="muted">Gate: 75% on-time deliveries with manual routing.</p>
+          </div>
+          <div class="milestone">
+            <span class="badge">Weeks 6–8 · Offer design</span>
+            <p>Translate learnings into subscription tiers, finalize SLA, prep dashboards.</p>
+            <p class="muted">Gate: Pricing &amp; messaging validated through simulated checkout.</p>
+          </div>
+        </div>
+      </section>
+
+      <section data-background-color="#fff1e1">
+        <h2>Competitive snapshot</h2>
+        <div class="grid-2">
+          <div class="card soft">
+            <h3>Tchop &amp; Yamo</h3>
+            <ul>
+              <li>Focuses on Cameroonian comfort meals and seasonal menus.</li>
+              <li>Strong social engagement but inconsistent delivery windows.</li>
+              <li>Opportunity: Emphasize XYZ&apos;s scheduled slots and concierge care.</li>
+            </ul>
+            <img src="https://res.cloudinary.com/diuvvyatm/image/upload/v1761401565/Screenshot_20251025-144103_t127jq.jpg" alt="Screenshot of Tchop &amp; Yamo Facebook page.">
+          </div>
+          <div class="card">
+            <h3>K.My Choice</h3>
+            <ul>
+              <li>Promotes office catering with broad buffet options.</li>
+              <li>Limited subscription messaging; relies on ad-hoc ordering.</li>
+              <li>Opportunity: Position XYZ as the predictable weekly partner with data-rich reporting.</li>
+            </ul>
+            <img src="https://res.cloudinary.com/diuvvyatm/image/upload/v1761401564/Screenshot_20251025-144243_n58jae.jpg" alt="Screenshot of K.My Choice Facebook page.">
+          </div>
+        </div>
+        <p class="muted">Both competitors reinforce demand for culturally resonant meals while leaving a gap for reliability and subscription-first experiences.</p>
+      </section>
+
+      <section data-background-color="#fff1e1">
+        <h2>Barriers &amp; enablers to subscription</h2>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Adoption barriers</h3>
+            <ul>
+              <li>Budget predictability — fear of paying upfront without tasting.</li>
+              <li>Trust — concerns about hygiene and rider professionalism.</li>
+              <li>Variety — repetitive menus cause subscription fatigue.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>How we address them</h3>
+            <ul>
+              <li>Weekly mobile money billing + pause button from onboarding.</li>
+              <li>Chef credentials, kitchen tours, real-time delivery map.</li>
+              <li>Seasonal rotations, cultural specials, family add-ons.</li>
+            </ul>
+            <p class="muted">Measured by: trial-to-subscription conversion ≥ 60% and churn intent < 20% at concierge exit interviews.</p>
+          </div>
+        </div>
+      </section>
+
+      <section data-background-color="#fff5eb">
+        <span class="section-label">step 1 output</span>
+        <h2>Win / loss learning approach</h2>
+        <div class="tiles">
+          <div class="tile">
+            <strong>Structured intake</strong>
+            <p>Capture decision reason codes after each pilot cycle (price, timing, menu, trust).</p>
+          </div>
+          <div class="tile">
+            <strong>Follow-up calls</strong>
+            <p>48-hour callbacks for churned prospects to understand blockers.</p>
+          </div>
+          <div class="tile">
+            <strong>Insight loop</strong>
+            <p>Translate reasons into playbooks (billing flexibility, onboarding script, SLA proof).</p>
+          </div>
+          <div class="tile">
+            <strong>Signals to ship</strong>
+            <p>Move to full launch when wins cite &ldquo;predictable delivery&rdquo; &amp; &ldquo;menu rotation&rdquo; as top 2 reasons.</p>
+          </div>
+        </div>
+        <aside class="notes">Explain this is forward-looking: how we will understand why customers subscribe or not, per the exam brief.</aside>
+      </section>
+
+      <section data-background-color="#fff5eb">
+        <span class="section-label">step 2 · segmentation & personas</span>
+        <h2>Segmentation summary</h2>
+        <div class="card">
+          <table>
+            <thead><tr><th>Type</th><th>Signal</th><th>Implication</th></tr></thead>
+            <tbody>
+              <tr><td>Demographic</td><td>Urban millennials (23–38), dual-income parents, 10–30 seat teams.</td><td>Design family &amp; corporate bundles.</td></tr>
+              <tr><td>Psychographic</td><td>Time-starved planners seeking reliability &amp; nutrition transparency.</td><td>Lead with guaranteed slots &amp; chef stories.</td></tr>
+              <tr><td>Behavioral</td><td>Heavy WhatsApp users, rely on mobile money, respond to referrals.</td><td>Use concierge onboarding, referral rewards, SMS reminders.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section data-background-color="#fff5eb">
+        <h2>Persona · Jeanne — Focused Nursing Intern</h2>
+        <div class="grid-2">
+          <div class="card">
+            <ul>
+              <li>24 years old, nursing intern in Douala, shares an apartment with two roommates.</li>
+              <li>Goal: Eat balanced meals under 70,000 FCFA per month without cooking after evening shifts.</li>
+              <li>Trigger: Intensive hospital rotation resumes and she needs reliable midday meals.</li>
+              <li>Objections: Worries about long commitments and rider professionalism.</li>
+            </ul>
+          </div>
+          <div class="story-card">
+            <h3>How XYZ serves Jeanne</h3>
+            <ul>
+              <li><strong>Student Flex plan</strong> — guaranteed delivery by 11:45 a.m. with three pause credits per semester.</li>
+              <li><strong>Roommate referral</strong> — earns meal credits when friends subscribe.</li>
+              <li><strong>WhatsApp concierge</strong> — reminders, nutrition snapshots, and swap requests.</li>
+            </ul>
+            <p class="muted">Success signal: ≥80% of student pilots renew after four weeks.</p>
+          </div>
+        </div>
+      </section>
+
+      <section data-background-color="#fff5eb">
+        <h2>Persona · Daniel — Operations Lead</h2>
+        <div class="grid-2">
+          <div class="card">
+            <ul>
+              <li>Heads customer support for an 18-person team in Yaounde with rotating shifts.</li>
+              <li>Goal: Reliable meals, a single invoice, and menus that match day and night crews.</li>
+              <li>Trigger: Escalating complaints about late caterers impacting service levels.</li>
+              <li>Objections: Needs proof of consistent quality and hygiene compliance.</li>
+            </ul>
+          </div>
+          <div class="story-card">
+            <h3>How XYZ serves Daniel</h3>
+            <ul>
+              <li><strong>Team Pulse portal</strong> — menus published seven days ahead with live SLA tracking.</li>
+              <li><strong>Consolidated billing</strong> — monthly invoice plus CSV export for finance.</li>
+              <li><strong>Dedicated account manager</strong> — quarterly tasting sessions and onboarding toolkit.</li>
+            </ul>
+            <p class="muted">Success signal: Sign five pilot accounts that total 150 daily meals.</p>
+          </div>
+        </div>
+      </section>
+
+      <section data-background-color="#fff5eb">
+        <h2>How personas shape the plan</h2>
+        <div class="impact-table">
+          <table>
+            <thead><tr><th>Lever</th><th>Jeanne</th><th>Daniel</th></tr></thead>
+            <tbody>
+              <tr><td>Product features</td><td>Pause calendar, energy-focused menu recommendations, nutrition badges.</td><td>SLA dashboard, multi-shift menus, allergen reporting.</td></tr>
+              <tr><td>Marketing strategy</td><td>Campus TikTok creators, student ambassadors, “gentle first month” offers.</td><td>LinkedIn case studies, ROI emails, “lunch ops” webinars.</td></tr>
+              <tr><td>Sales approach</td><td>WhatsApp concierge trials, five-day tastings, evening support hours.</td><td>Account-based outreach, free lunch trials, SLA-backed contracts.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <aside class="notes">Spell out how persona insights translate into feature, marketing, and sales choices to satisfy the brief.</aside>
+      </section>
+
+      <section data-background-color="#ffe8cf">
+        <span class="section-label">step 2 output</span>
+        <h2>Customer journey — Jeanne</h2>
+        <div class="journey">
+          <div class="stage">
+            <strong>Awareness</strong>
+            <span>Jeanne watches a “no-stress meal prep” TikTok featuring XYZ Express.</span>
+          </div>
+          <div class="stage">
+            <strong>Consideration</strong>
+            <span>She receives a WhatsApp budget guide and chats with a concierge about meal goals.</span>
+          </div>
+          <div class="stage">
+            <strong>Subscription</strong>
+            <span>She activates in ten minutes and confirms weekly mobile money payments.</span>
+          </div>
+          <div class="stage">
+            <strong>Retention</strong>
+            <span>Loyalty points and “exam fuel” surprises arrive every eight meals.</span>
+          </div>
+        </div>
+      </section>
+
+      <section data-background-color="#ffe8cf">
+        <span class="section-label">step 3 · positioning & messaging</span>
+        <h2>Positioning statement</h2>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Statement</h3>
+          <p><strong>For</strong> busy households and growth-focused teams in Douala &amp; Yaounde<br><strong>Who</strong> need reliable, nutritious meals without daily coordination,<br><strong>XYZ Express</strong> is a hybrid meal subscription that guarantees scheduled delivery windows and culturally relevant menus.<br><strong>Unlike</strong> on-demand apps or single-chef services,<br>we manage prep-to-door operations with certified hubs, vetted riders, and a concierge onboarding squad.</p>
+          </div>
+          <div class="card">
+            <h3>Reasons to believe</h3>
+            <ul>
+              <li>Two micro-fulfillment hubs ready with HACCP-compliant processes.</li>
+              <li>15 riders pre-contracted with incentive-based SLA.</li>
+              <li>Nutritionist-designed 6-week rotation featuring local classics.</li>
             </ul>
           </div>
         </div>
       </section>
 
-      <!-- CHARTS -->
-      <section data-background-color="#0f172a" data-mini="happy_grin">
-        <h2>Adoption & Cohorts</h2>
+      <section data-background-color="#ffe8cf">
+        <h2>Value propositions</h2>
         <div class="grid-2">
-          <div class="card"><canvas id="lineRetention" width="480" height="300"></canvas></div>
-          <div class="card"><canvas id="barPlans" width="480" height="300"></canvas></div>
-        </div>
-        <p class="muted">Numbers are placeholders. Replace with final figures.</p>
-      </section>
-
-      <!-- SEGMENTATION -->
-      <section data-background-color="#0b1220" data-mini="gentle_smile">
-        <h2>Segmentation</h2>
-        <div class="grid-3">
-          <div class="card fragment"><strong>Demographic</strong><br>18–45, students, office workers, single parents</div>
-          <div class="card fragment"><strong>Psychographic</strong><br>Busy, convenience-first, health-aware, value-seeking</div>
-          <div class="card fragment"><strong>Behavioral</strong><br>Repeat app users, lunch peaks, MM loyalists</div>
-        </div>
-      </section>
-
-      <!-- PERSONAS -->
-      <section data-background-color="#0c0f1a" data-auto-animate data-mini="pleading_puppy_eyes">
-        <h2 data-id="persona">Persona — Nora (B2C)</h2>
-        <div class="grid-2">
-          <div class="card" data-id="p-left">
+          <div class="card">
+            <h3>Individuals &amp; families</h3>
             <ul>
-              <li>Goal: eat better, spend less</li>
-              <li>Pain: irregular schedule, budget</li>
-              <li>XYZ: weekly plan, student pricing, noon window</li>
+              <li>Scheduled deliveries for every critical window (lunch and dinner).</li>
+              <li>Flexible plans: Student Flex, Active Duo, Weekend Family bundles.</li>
+              <li>Transparent nutrition data plus vegetarian and gluten-free paths.</li>
             </ul>
           </div>
-          <div class="card" data-id="p-right">
-            <div class="ph">[PHOTO PLACEHOLDER]<small>Drop headshot</small></div>
-          </div>
-        </div>
-      </section>
-      <section data-background-color="#0c0f1a" data-auto-animate data-mini="cool_shades">
-        <h2 data-id="persona">Persona — Daniel (B2B)</h2>
-        <div class="grid-2">
-          <div class="card" data-id="p-left">
+          <div class="card">
+            <h3>Businesses &amp; partners</h3>
             <ul>
-              <li>Goal: feed 10, zero chaos</li>
-              <li>Pain: multi-vendor delays</li>
-              <li>XYZ: corporate plan, fixed menus, one invoice</li>
+              <li>Single invoice with SLA reporting for HR and Finance.</li>
+              <li>Shift-based corporate menus with add-on snacks for meetings.</li>
+              <li>Ambassador program and co-branding kits for partners.</li>
             </ul>
           </div>
-          <div class="card" data-id="p-right">
-            <div class="ph">[PHOTO PLACEHOLDER]<small>Drop headshot</small></div>
+        </div>
+      </section>
+
+      <section data-background-color="#ffe8cf">
+        <h2>Messaging framework</h2>
+        <div class="card">
+          <table>
+            <thead><tr><th>Audience</th><th>Key message</th><th>Proof / Asset</th><th>CTA &amp; channel</th></tr></thead>
+            <tbody>
+              <tr><td>Consumers</td><td>“Meals arrive on time, even on your busiest days.”</td><td>Pause calendar, live tracking, student testimonial video.</td><td>WhatsApp concierge · Start a one-week trial</td></tr>
+              <tr><td>Corporate teams</td><td>“One invoice, zero delivery surprises.”</td><td>45-minute SLA, dashboard demo, complimentary tasting.</td><td>LinkedIn + targeted email · Book a tasting</td></tr>
+              <tr><td>Investors &amp; partners</td><td>“Recurring margins with hubs ready to scale.”</td><td>Hub capacity snapshot, supplier agreements, expansion roadmap.</td><td>Investor deck · Schedule a call</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section data-background-color="#ffe0c7">
+        <span class="section-label">storytelling</span>
+        <h2>Hero&apos;s journey — Jeanne</h2>
+        <div class="story-grid">
+          <div class="story-card">
+            <h3>1. Ordinary world</h3>
+            <p>Jeanne juggles hospital shifts and late-night studying, often skipping meals or grabbing snacks that drain her budget.</p>
+            <img src="https://res.cloudinary.com/diuvvyatm/image/upload/v1761403463/Gemini_Generated_Image_qstmd9qstmd9qstm_hspvmj.png" alt="Jeanne exhausted during a hospital break holding a snack.">
+            <p class="story-step">Pain: fatigue, impulsive spending, no dependable meal rhythm.</p>
+          </div>
+          <div class="story-card">
+            <h3>2. Call to adventure</h3>
+            <p>A classmate shares her concierge experience with XYZ Express and invites Jeanne to test a five-day plan.</p>
+            <img src="https://res.cloudinary.com/diuvvyatm/image/upload/v1761403446/Gemini_Generated_Image_e1f2eje1f2eje1f2_t5lmwo.png" alt="Jeanne reading an XYZ Express invitation on her phone.">
+            <p class="story-step">Trigger: Desire for a stable routine ahead of exam season.</p>
           </div>
         </div>
       </section>
 
-      <!-- POSITIONING & MESSAGING -->
-      <section data-background-color="#0f172a" data-mini="stern_warning">
-        <h2>Positioning</h2>
-        <p><strong>For</strong> busy people & teams in Douala/Yaoundé,<br>
-        <strong>XYZ Express</strong> delivers scheduled meals at a predictable price,<br>
-        <strong>unlike</strong> on-demand apps with random cost/timing.</p>
+      <section data-background-color="#ffe0c7">
+        <div class="story-grid">
+          <div class="story-card">
+            <h3>3. Trials &amp; allies</h3>
+            <p>She experiments with the pause feature as her shifts change and swaps recipes with other students in the community channel.</p>
+            <img src="https://res.cloudinary.com/diuvvyatm/image/upload/v1761403441/Gemini_Generated_Image_n98negn98negn98n_d4cqky.png" alt="XYZ Express app showing a paused meal plan.">
+            <p class="story-step">Proof point: 92% of concierge messages answered in under five minutes.</p>
+          </div>
+          <div class="story-card">
+            <h3>4. Transformation</h3>
+            <p>Within three weeks Jeanne follows a balanced rotation, gains four hours weekly, and refers her roommates for extra credits.</p>
+            <img src="https://res.cloudinary.com/diuvvyatm/image/upload/v1761403448/Gemini_Generated_Image_olnb16olnb16olnb_hkekii.png" alt="Jeanne celebrating a study session with friends and XYZ Express meals.">
+            <p class="story-step">Outcome: Higher energy, better focus, and community-driven growth.</p>
+          </div>
+        </div>
+        <aside class="notes">Walk through the hero&apos;s journey: ordinary world, call, trials, and transformation — each tied to specific XYZ Express touchpoints.</aside>
       </section>
 
-      <section data-background-color="#0f172a" data-mini="love_heart">
-        <h2>Messaging</h2>
-        <table>
-          <tr><th>Audience</th><th>Message</th><th>CTA</th></tr>
-          <tr class="fragment"><td>Consumers</td><td>Your meals, on schedule.</td><td>Subscribe Now</td></tr>
-          <tr class="fragment"><td>Corporate</td><td>Fuel focus. Predict lunch.</td><td>Start Corporate Plan</td></tr>
-          <tr class="fragment"><td>Investors</td><td>Predictable dining, recurring revenue.</td><td>Partner with XYZ</td></tr>
-        </table>
+      <section data-background-color="#ffe8cf">
+        <span class="section-label">step 4 · go-to-market execution</span>
+        <h2>30·60·90 plan</h2>
+        <div class="roadmap">
+          <div class="card">
+            <h3>Days 0–30 · Validation</h3>
+            <ul>
+              <li>Launch interviews and jobs-to-be-done synthesis.</li>
+              <li>Secure Bonapriso and Bastos hubs, complete hygiene audits.</li>
+              <li>Train the concierge squad (four agents).</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Days 31–60 · Pre-launch</h3>
+            <ul>
+              <li>Run the WhatsApp concierge MVP and analyze feedback loops.</li>
+              <li>Test branding and subscription site (beta).</li>
+              <li>Schedule six corporate tastings with target accounts.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Days 61–90 · Launch</h3>
+            <ul>
+              <li>Open the self-serve portal with recurring payments.</li>
+              <li>Deploy the “Rhythm without stress” campaign (OOH + digital).</li>
+              <li>Operationalize the win/loss loop with weekly reporting.</li>
+            </ul>
+          </div>
+        </div>
       </section>
 
-      <!-- STORY AIDA -->
-      <section data-background-color="#0b1220" class="r-stack" data-mini="rage_shouting">
-        <h2 class="fragment">A — Attention</h2>
-        <h2 class="fragment">I — Interest</h2>
-        <h2 class="fragment">D — Desire</h2>
-        <h2 class="fragment">A — Action</h2>
+      <section data-background-color="#ffe8cf">
+        <h2>Validation KPIs to monitor</h2>
+        <div class="tiles">
+          <div class="tile">
+            <strong>Discovery</strong>
+            <p>80% of interviews validate three recurring pains around predictability and nutrition.</p>
+          </div>
+          <div class="tile">
+            <strong>Concierge MVP</strong>
+            <p>≥60% trial-to-paid conversion and &lt;10% late deliveries over four weeks.</p>
+          </div>
+          <div class="tile">
+            <strong>Product readiness</strong>
+            <p>Net promoter score ≥35 among early subscribers; churn intent &lt;20% at exit interviews.</p>
+          </div>
+          <div class="tile">
+            <strong>Revenue traction</strong>
+            <p>Monthly recurring revenue run-rate of 6M FCFA with 35% gross margin by week 12.</p>
+          </div>
+        </div>
+        <p class="muted">Each KPI ties back to research, segmentation, and positioning hypotheses and will be iterated as real usage data emerges.</p>
       </section>
 
-      <!-- NEXT STEPS -->
-      <section data-background-color="#0c0f1a" data-mini="satisfied_mwah">
-        <h2>Next Steps</h2>
-        <ul>
-          <li class="fragment">Pilot 2 districts per city</li>
-          <li class="fragment">Student & corporate plans</li>
-          <li class="fragment">Measure: retention, on-time, NPS</li>
-        </ul>
-        <div class="ph" style="margin-top:12px">[PLACEHOLDER LINKS]<small>Insert final sources & screenshots</small></div>
+      <section data-background-color="#ffe8cf">
+        <h2>Scenario projections &amp; iteration cadence</h2>
+        <div class="grid-2">
+          <div class="card soft">
+            <h3>Base case (weeks 1–12)</h3>
+            <ul>
+              <li>120 household subscriptions and 6 corporate pilots by week 12.</li>
+              <li>Average order value: 18,500 FCFA households · 32,000 FCFA corporate.</li>
+              <li>Gross margin climbs from 28% to 35% as hubs reach 70% capacity.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Adjustment triggers</h3>
+            <ul>
+              <li>If conversion &lt;50%, expand referral incentives and revisit pricing anchors.</li>
+              <li>If margins &lt;30%, rebalance menu mix (local staples vs. premium) and renegotiate supplier terms.</li>
+              <li>Monthly review ritual connects research insights to product and growth experiments.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="muted">Projections are informed by market research, segmentation, and positioning assumptions, and will be recalibrated as pilot data lands.</p>
+      </section>
+
+      <section data-background-color="#fff5eb">
+        <h2>Support required to deliver</h2>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Budget</h3>
+            <ul>
+              <li>45M FCFA across kitchen setup, rider fleet incentives, and brand rollout.</li>
+              <li>Contingency reserve of 10% earmarked for demand spikes.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Team &amp; governance</h3>
+            <ul>
+              <li>Core squad: product marketing lead (me), ops analyst, campus growth lead, B2B account manager.</li>
+              <li>Advisory: legal counsel for supplier agreements, finance partner for KPI instrumentation.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="muted">This support keeps the roadmap, KPIs, and projection adjustments grounded in timely execution.</p>
+      </section>
+
+      <section data-background-color="#fff5eb">
+        <h2>Call to action</h2>
+        <div class="card soft">
+          <ul>
+            <li>Align on the hybrid product scope and validation roadmap this week.</li>
+            <li>Approve the 45M FCFA pilot budget and governance cadence.</li>
+            <li>Confirm timeline for exporting this deck to PDF and sharing via Google Drive.</li>
+          </ul>
+          <p class="muted">Once approved, we move directly into interview scheduling and concierge MVP setup.</p>
+        </div>
+      </section>
+
+      <section data-background-color="#ffffff" data-mini="founder_heart_tl,founder_heart_br">
+        <div class="intro-card">
+          <h2>Thank you!</h2>
+          <p>This go-to-market plan was created for the AltSchool Africa Product Marketing First Semester Exam (2025).</p>
+          <div class="contact-grid">
+            <span><strong>Submitted by</strong> TEGOFACK JEUKENG Ange Michel</span>
+            <span><strong>Personal email</strong> jeukengange@gmail.com</span>
+            <span><strong>Professional email</strong> bonjour@micheltegofack.com</span>
+          </div>
+        </div>
+        <aside class="notes">Close with gratitude, restate the exam context, and confirm availability for walkthroughs before submission.</aside>
       </section>
 
     </div>
@@ -216,106 +615,62 @@
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/notes/notes.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/search/search.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/zoom/zoom.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 
   <script>
-    const MINI = {"unimpressed_meh": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390875/unimpressed_meh_euxuae.png", "sick_bad": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390874/sick_bad_yltsoc.png", "stern_warning": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390872/stern_warning_ao6r12.png", "worried_concern": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390872/worried_concern_p0fz8g.png", "sly_smirk": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390871/sly_smirk_xmzih0.png", "thinking_pensive": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390870/thinking_pensive_lhckbd.png", "sleepy_yawn": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390870/sleepy_yawn_fi84h7.png", "sad_regret": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390870/sad_regret_cdyok5.png", "sick_mask": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390869/sick_mask_qi5yms.png", "shock_surprise": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390868/shock_surprise_zzb5pi.png", "oops_injury": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390867/oops_injury_zmbm5l.png", "serious_folded_arms": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390866/serious_folded_arms_ku3vwh.png", "satisfied_mwah": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390866/satisfied_mwah_yl5uih.png", "pleading_puppy_eyes": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390865/pleading_puppy_eyes_ns6u8n.png", "sad_crying": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390865/sad_crying_kkulpy.png", "rage_shouting": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390864/rage_shouting_stjnry.png", "joy_victory": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390864/joy_victory_h6r01v.png", "idea_eureka": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390863/idea_eureka_cuekvb.png", "love_heart": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390862/love_heart_lwokcx.png", "money_eyes": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390862/money_eyes_yecinq.png", "happy_grin": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390862/happy_grin_mhrgwl.png", "grateful_praying": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390860/grateful_praying_lkwzpm.png", "got_the_bag": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390859/got_the_bag_hslfes.png", "anger_determined": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390859/anger_determined_uhhm34.png", "gentle_smile": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390859/gentle_smile_sojuto.png", "devilish_mischief": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390858/devilish_mischief_t8c3ip.png", "angel_mode": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390858/angel_mode_ys859x.png", "cool_shades": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390858/cool_shades_atfezm.png"};
+    const MINI = {
+      founder_tl:"https://res.cloudinary.com/diuvvyatm/image/upload/v1761390859/gentle_smile_sojuto.png",
+      founder_tr:"https://res.cloudinary.com/diuvvyatm/image/upload/v1761390859/gentle_smile_sojuto.png",
+      founder_bl:"https://res.cloudinary.com/diuvvyatm/image/upload/v1761390859/gentle_smile_sojuto.png",
+      founder_br:"https://res.cloudinary.com/diuvvyatm/image/upload/v1761390859/gentle_smile_sojuto.png",
+      founder_heart_tl:"https://res.cloudinary.com/diuvvyatm/image/upload/v1761390862/love_heart_lwokcx.png",
+      founder_heart_br:"https://res.cloudinary.com/diuvvyatm/image/upload/v1761390862/love_heart_lwokcx.png"
+    };
     const PRESETS = {
-      joy_victory:        {pos:'bl', anim:'pop'},
-      anger_determined:   {pos:'tr', anim:'shake'},
-      sad_crying:         {pos:'br', anim:'fade-in'},
-      serious_folded_arms:{pos:'tl', anim:'fade-in'},
-      thinking_pensive:   {pos:'tl', anim:'fade-in'},
-      oops_injury:        {pos:'cr', anim:'fade-in'},
-      money_eyes:         {pos:'tl', anim:'pop'},
-      angel_mode:         {pos:'cr', anim:'fade-in'},
-      shock_surprise:     {pos:'tc', anim:'slide-l'},
-      devilish_mischief:  {pos:'bc', anim:'fade-in'},
-      idea_eureka:        {pos:'tc', anim:'pop'},
-      got_the_bag:        {pos:'tl', anim:'pop'},
-      love_heart:         {pos:'bl', anim:'pop'},
-      stern_warning:      {pos:'tr', anim:'shake'},
-      worried_concern:    {pos:'br', anim:'fade-in'},
-      rage_shouting:      {pos:'tr', anim:'shake'},
-      unimpressed_meh:    {pos:'cr', anim:'fade-in'},
-      sad_regret:         {pos:'br', anim:'fade-in'},
-      sick_mask:          {pos:'bc', anim:'fade-in'},
-      sick_bad:           {pos:'bc', anim:'fade-in'},
-      sleepy_yawn:        {pos:'bl', anim:'fade-in'},
-      happy_grin:         {pos:'br', anim:'pop'},
-      gentle_smile:       {pos:'cr', anim:'fade-in'},
-      grateful_praying:   {pos:'bl', anim:'pop'},
-      cool_shades:        {pos:'tr', anim:'slide-l'},
-      sly_smirk:          {pos:'br', anim:'slide-l'},
-      pleading_puppy_eyes:{pos:'bc', anim:'fade-in'},
-      satisfied_mwah:     {pos:'br', anim:'pop'}
+      founder_tl:{pos:'tl'},
+      founder_tr:{pos:'tr'},
+      founder_bl:{pos:'bl'},
+      founder_br:{pos:'br'},
+      founder_heart_tl:{pos:'tl'},
+      founder_heart_br:{pos:'br'}
     };
 
-    const deck = new Reveal({ hash:true, progress:true, slideNumber:true, plugins:[ RevealNotes, RevealSearch, RevealZoom ] });
+    const deck = new Reveal({
+      hash:true,
+      progress:true,
+      slideNumber:true,
+      controlsTutorial:true,
+      width:1280,
+      height:720,
+      plugins:[RevealNotes, RevealSearch, RevealZoom]
+    });
     deck.initialize();
 
     function spawnMinis(slide){
-      // clear existing on this slide
       slide.querySelectorAll('img.mini').forEach(el=>el.remove());
       const tag = slide.dataset.mini;
       if(!tag) return;
       tag.split(',').map(v=>v.trim()).forEach((id,i)=>{
-        const url = MINI[id]; if(!url) return;
-        const preset = PRESETS[id] || {pos:'br', anim:'fade-in'};
+        const url = MINI[id];
+        if(!url) return;
+        const preset = PRESETS[id] || {pos:'br'};
         const img = document.createElement('img');
-        img.src = url; img.alt = id; img.className = `mini ${preset.anim}`;
+        img.src = url;
+        img.alt = id;
+        img.className = 'mini';
         img.dataset.pos = preset.pos;
-        img.style.setProperty('--mini-size', '92px');
-        img.style.animationDelay = (i*160)+'ms';
+        img.style.setProperty('--mini-size','112px');
         slide.appendChild(img);
-        if(!preset.anim) img.classList.add('fade-in');
       });
     }
 
-    deck.on('ready', e => {
-      spawnMinis(deck.getCurrentSlide());
-    });
-    deck.on('slidechanged', e => {
-      // cleanup old & spawn new
-      spawnMinis(e.previousSlide || e.currentSlide);
-      spawnMinis(e.currentSlide);
+    deck.on('ready', event => {
+      spawnMinis(event.currentSlide);
     });
 
-    // Charts (placeholder data)
-    function charts(){
-      const el1 = document.getElementById('lineRetention');
-      if(el1 && !el1.dataset.rendered){
-        new Chart(el1, {
-          type: 'line',
-          data: {
-            labels: ['W1','W2','W3','W4','W5','W6','W7','W8'],
-            datasets: [
-              {label:'Student plan', data:[100,78,72,70,68,66,65,64], tension:.35},
-              {label:'Corporate plan', data:[100,82,78,74,70,67,65,63], tension:.35}
-            ]
-          },
-          options:{ responsive:true, plugins:{ legend:{position:'bottom'} } }
-        });
-        el1.dataset.rendered=1;
-      }
-      const el2 = document.getElementById('barPlans');
-      if(el2 && !el2.dataset.rendered){
-        new Chart(el2, {
-          type:'bar',
-          data:{
-            labels:['Daily','Weekly'],
-            datasets:[
-              {label:'Sign-ups', data:[1200, 800]},
-              {label:'Churn %', data:[18, 12]}
-            ]
-          },
-          options:{ responsive:true, plugins:{ legend:{position:'bottom'} } }
-        });
-        el2.dataset.rendered=1;
-      }
-    }
-    deck.on('slidechanged', charts);
-    deck.on('ready', charts);
+    deck.on('slidechanged', event => {
+      if(event.previousSlide) event.previousSlide.querySelectorAll('img.mini').forEach(el=>el.remove());
+      spawnMinis(event.currentSlide);
+    });
   </script>
 </body>
 </html>
