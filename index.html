@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>XYZ Express — Douala & Yaoundé Launch — Michel T.</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/league.css" id="theme">
+  <style>
+    :root{
+      --accent:#ff3366;       /* project accent */
+      --blue:#2ba0ff;         /* Michel touch */
+      --bg1:#0c0f1a;
+      --bg2:#0f172a;
+      --bg3:#0b1220;
+      --surface: rgba(255,255,255,.06);
+      --stroke: rgba(255,255,255,.10);
+      --muted:#9aa4b2;
+    }
+    .reveal { font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial; }
+    .reveal h1, .reveal h2, .reveal h3 { letter-spacing:-.02em; }
+    .accent { color: var(--accent); }
+    .blue { color: var(--blue); }
+    .pill { display:inline-block; padding:.25em .6em; border-radius:999px; border:1px solid var(--stroke); font-size:.6em; color:#e5e7eb; }
+    .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+    .grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .card { background: var(--surface); border:1px solid var(--stroke); padding:16px; border-radius:14px; }
+    .kpi { font-size:2.2rem; font-weight:800; }
+    .muted { color:var(--muted); font-size:.7em; }
+    .mini{ width: var(--mini-size,92px); position:absolute; z-index:9; opacity:0; filter: drop-shadow(0 8px 18px rgba(0,0,0,.35)); animation-fill-mode:both; }
+    .mini[data-pos="tl"]{ top:20px; left:20px; } .mini[data-pos="tr"]{ top:20px; right:20px; }
+    .mini[data-pos="bl"]{ bottom:20px; left:20px; } .mini[data-pos="br"]{ bottom:20px; right:20px; }
+    .mini[data-pos="tc"]{ top:14px; left:50%; transform:translateX(-50%); }
+    .mini[data-pos="bc"]{ bottom:14px; left:50%; transform:translateX(-50%); }
+    .mini[data-pos="cr"]{ top:50%; right:20px; transform:translateY(-50%); }
+
+    /* subtle blue gradient overlays per section if needed */
+    .bg-blue::before{
+      content:""; position:absolute; inset:0;
+      background: radial-gradient(1000px 400px at 80% 20%, rgba(43,160,255,.12), transparent 60%);
+      pointer-events:none;
+    }
+
+    /* Animations */
+    @keyframes fadeIn { from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:translateY(0)} }
+    @keyframes pop { 0%{opacity:0; transform:scale(.7)} 70%{opacity:1; transform:scale(1.05)} 100%{transform:scale(1)} }
+    @keyframes slideL { 0%{opacity:0; transform:translateX(24px)} 100%{opacity:1; transform:translateX(0)} }
+    @keyframes shake { 0%{transform:translateX(0)} 25%{transform:translateX(-6px)} 50%{transform:translateX(6px)} 75%{transform:translateX(-3px)} 100%{transform:translateX(0)}}
+    .fade-in{ animation: fadeIn .7s ease-out forwards; }
+    .pop{ animation: pop .6s ease-out forwards; }
+    .slide-l{ animation: slideL .6s ease-out forwards; }
+    .shake{ animation: fadeIn .25s ease-out forwards, shake .5s ease-in .25s; }
+
+    .ph { border:2px dashed var(--stroke); border-radius:12px; padding:14px; text-align:center; color:#94a3b8; }
+    .ph small { display:block; margin-top:6px; font-size:.65em; }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- COVER -->
+      <section class="bg-blue" data-background-color="#0c0f1a" data-mini="cool_shades" data-transition="convex">
+        <h1><span class="accent">XYZ Express</span> Meal Subscription</h1>
+        <p class="muted">Douala & Yaoundé — Product Marketing Strategy</p>
+        <p class="pill">By <span class="blue">Michel T.</span></p>
+      </section>
+
+      <!-- OVERVIEW -->
+      <section data-background-color="#0f172a" data-mini="idea_eureka" data-transition="convex">
+        <h2>Why this launch, why now?</h2>
+        <ul>
+          <li class="fragment">Urban growth, young, mobile-first</li>
+          <li class="fragment">Delivery pain: traffic, reliability, trust</li>
+          <li class="fragment">Subscription appetite when value is clear</li>
+        </ul>
+      </section>
+
+      <!-- KPIs auto-animate -->
+      <section data-auto-animate data-background-color="#0b1220" data-mini="money_eyes">
+        <h2 data-id="kpi">North Star</h2>
+        <div class="grid-3">
+          <div class="card"><div class="kpi" data-id="retention">Retention 30d: <span class="accent">64%</span></div><div class="muted">Target ≥ 55%</div></div>
+          <div class="card"><div class="kpi" data-id="ontime">On-time: <span class="accent">92%</span></div><div class="muted">ETA windows respected</div></div>
+          <div class="card"><div class="kpi" data-id="cac">CAC payback: <span class="accent">2.5</span> mo</div><div class="muted">Student plan faster</div></div>
+        </div>
+      </section>
+      <section data-auto-animate data-background-color="#0b1220" data-mini="sly_smirk">
+        <h2 data-id="kpi">North Star</h2>
+        <div class="grid-3">
+          <div class="card"><div class="kpi" data-id="retention">Retention 60d: <span class="accent">52%</span></div><div class="muted">Cohort Δ +6 pts</div></div>
+          <div class="card"><div class="kpi" data-id="ontime">On-time: <span class="accent">94%</span></div><div class="muted">Ops stabilization</div></div>
+          <div class="card"><div class="kpi" data-id="cac">CAC payback: <span class="accent">2.1</span> mo</div><div class="muted">Referrals ↑</div></div>
+        </div>
+      </section>
+
+      <!-- COMPETITORS placeholders -->
+      <section data-background-color="#0c0f1a" data-mini="thinking_pensive">
+        <h2>Competitors</h2>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Tchop et Yamo</h3>
+            <div class="ph">[PLACEHOLDER SCREENSHOT]<small>Paste FB post link here</small></div>
+            <ul>
+              <li class="fragment">Local fast-food + delivery</li>
+              <li class="fragment">Community-driven promos</li>
+              <li class="fragment">Weekly lunch packs tested</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>K My Choice</h3>
+            <div class="ph">[PLACEHOLDER SCREENSHOT]<small>Paste FB post link here</small></div>
+            <ul>
+              <li class="fragment">Groceries + home-cooked meals</li>
+              <li class="fragment">Personalized weekly prep</li>
+              <li class="fragment">Premium, smaller scale</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHARTS -->
+      <section data-background-color="#0f172a" data-mini="happy_grin">
+        <h2>Adoption & Cohorts</h2>
+        <div class="grid-2">
+          <div class="card"><canvas id="lineRetention" width="480" height="300"></canvas></div>
+          <div class="card"><canvas id="barPlans" width="480" height="300"></canvas></div>
+        </div>
+        <p class="muted">Numbers are placeholders. Replace with final figures.</p>
+      </section>
+
+      <!-- SEGMENTATION -->
+      <section data-background-color="#0b1220" data-mini="gentle_smile">
+        <h2>Segmentation</h2>
+        <div class="grid-3">
+          <div class="card fragment"><strong>Demographic</strong><br>18–45, students, office workers, single parents</div>
+          <div class="card fragment"><strong>Psychographic</strong><br>Busy, convenience-first, health-aware, value-seeking</div>
+          <div class="card fragment"><strong>Behavioral</strong><br>Repeat app users, lunch peaks, MM loyalists</div>
+        </div>
+      </section>
+
+      <!-- PERSONAS -->
+      <section data-background-color="#0c0f1a" data-auto-animate data-mini="pleading_puppy_eyes">
+        <h2 data-id="persona">Persona — Nora (B2C)</h2>
+        <div class="grid-2">
+          <div class="card" data-id="p-left">
+            <ul>
+              <li>Goal: eat better, spend less</li>
+              <li>Pain: irregular schedule, budget</li>
+              <li>XYZ: weekly plan, student pricing, noon window</li>
+            </ul>
+          </div>
+          <div class="card" data-id="p-right">
+            <div class="ph">[PHOTO PLACEHOLDER]<small>Drop headshot</small></div>
+          </div>
+        </div>
+      </section>
+      <section data-background-color="#0c0f1a" data-auto-animate data-mini="cool_shades">
+        <h2 data-id="persona">Persona — Daniel (B2B)</h2>
+        <div class="grid-2">
+          <div class="card" data-id="p-left">
+            <ul>
+              <li>Goal: feed 10, zero chaos</li>
+              <li>Pain: multi-vendor delays</li>
+              <li>XYZ: corporate plan, fixed menus, one invoice</li>
+            </ul>
+          </div>
+          <div class="card" data-id="p-right">
+            <div class="ph">[PHOTO PLACEHOLDER]<small>Drop headshot</small></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- POSITIONING & MESSAGING -->
+      <section data-background-color="#0f172a" data-mini="stern_warning">
+        <h2>Positioning</h2>
+        <p><strong>For</strong> busy people & teams in Douala/Yaoundé,<br>
+        <strong>XYZ Express</strong> delivers scheduled meals at a predictable price,<br>
+        <strong>unlike</strong> on-demand apps with random cost/timing.</p>
+      </section>
+
+      <section data-background-color="#0f172a" data-mini="love_heart">
+        <h2>Messaging</h2>
+        <table>
+          <tr><th>Audience</th><th>Message</th><th>CTA</th></tr>
+          <tr class="fragment"><td>Consumers</td><td>Your meals, on schedule.</td><td>Subscribe Now</td></tr>
+          <tr class="fragment"><td>Corporate</td><td>Fuel focus. Predict lunch.</td><td>Start Corporate Plan</td></tr>
+          <tr class="fragment"><td>Investors</td><td>Predictable dining, recurring revenue.</td><td>Partner with XYZ</td></tr>
+        </table>
+      </section>
+
+      <!-- STORY AIDA -->
+      <section data-background-color="#0b1220" class="r-stack" data-mini="rage_shouting">
+        <h2 class="fragment">A — Attention</h2>
+        <h2 class="fragment">I — Interest</h2>
+        <h2 class="fragment">D — Desire</h2>
+        <h2 class="fragment">A — Action</h2>
+      </section>
+
+      <!-- NEXT STEPS -->
+      <section data-background-color="#0c0f1a" data-mini="satisfied_mwah">
+        <h2>Next Steps</h2>
+        <ul>
+          <li class="fragment">Pilot 2 districts per city</li>
+          <li class="fragment">Student & corporate plans</li>
+          <li class="fragment">Measure: retention, on-time, NPS</li>
+        </ul>
+        <div class="ph" style="margin-top:12px">[PLACEHOLDER LINKS]<small>Insert final sources & screenshots</small></div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/notes/notes.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/search/search.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/zoom/zoom.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <script>
+    const MINI = {"unimpressed_meh": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390875/unimpressed_meh_euxuae.png", "sick_bad": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390874/sick_bad_yltsoc.png", "stern_warning": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390872/stern_warning_ao6r12.png", "worried_concern": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390872/worried_concern_p0fz8g.png", "sly_smirk": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390871/sly_smirk_xmzih0.png", "thinking_pensive": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390870/thinking_pensive_lhckbd.png", "sleepy_yawn": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390870/sleepy_yawn_fi84h7.png", "sad_regret": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390870/sad_regret_cdyok5.png", "sick_mask": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390869/sick_mask_qi5yms.png", "shock_surprise": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390868/shock_surprise_zzb5pi.png", "oops_injury": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390867/oops_injury_zmbm5l.png", "serious_folded_arms": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390866/serious_folded_arms_ku3vwh.png", "satisfied_mwah": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390866/satisfied_mwah_yl5uih.png", "pleading_puppy_eyes": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390865/pleading_puppy_eyes_ns6u8n.png", "sad_crying": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390865/sad_crying_kkulpy.png", "rage_shouting": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390864/rage_shouting_stjnry.png", "joy_victory": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390864/joy_victory_h6r01v.png", "idea_eureka": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390863/idea_eureka_cuekvb.png", "love_heart": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390862/love_heart_lwokcx.png", "money_eyes": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390862/money_eyes_yecinq.png", "happy_grin": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390862/happy_grin_mhrgwl.png", "grateful_praying": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390860/grateful_praying_lkwzpm.png", "got_the_bag": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390859/got_the_bag_hslfes.png", "anger_determined": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390859/anger_determined_uhhm34.png", "gentle_smile": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390859/gentle_smile_sojuto.png", "devilish_mischief": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390858/devilish_mischief_t8c3ip.png", "angel_mode": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390858/angel_mode_ys859x.png", "cool_shades": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390858/cool_shades_atfezm.png"};
+    const PRESETS = {
+      joy_victory:        {pos:'bl', anim:'pop'},
+      anger_determined:   {pos:'tr', anim:'shake'},
+      sad_crying:         {pos:'br', anim:'fade-in'},
+      serious_folded_arms:{pos:'tl', anim:'fade-in'},
+      thinking_pensive:   {pos:'tl', anim:'fade-in'},
+      oops_injury:        {pos:'cr', anim:'fade-in'},
+      money_eyes:         {pos:'tl', anim:'pop'},
+      angel_mode:         {pos:'cr', anim:'fade-in'},
+      shock_surprise:     {pos:'tc', anim:'slide-l'},
+      devilish_mischief:  {pos:'bc', anim:'fade-in'},
+      idea_eureka:        {pos:'tc', anim:'pop'},
+      got_the_bag:        {pos:'tl', anim:'pop'},
+      love_heart:         {pos:'bl', anim:'pop'},
+      stern_warning:      {pos:'tr', anim:'shake'},
+      worried_concern:    {pos:'br', anim:'fade-in'},
+      rage_shouting:      {pos:'tr', anim:'shake'},
+      unimpressed_meh:    {pos:'cr', anim:'fade-in'},
+      sad_regret:         {pos:'br', anim:'fade-in'},
+      sick_mask:          {pos:'bc', anim:'fade-in'},
+      sick_bad:           {pos:'bc', anim:'fade-in'},
+      sleepy_yawn:        {pos:'bl', anim:'fade-in'},
+      happy_grin:         {pos:'br', anim:'pop'},
+      gentle_smile:       {pos:'cr', anim:'fade-in'},
+      grateful_praying:   {pos:'bl', anim:'pop'},
+      cool_shades:        {pos:'tr', anim:'slide-l'},
+      sly_smirk:          {pos:'br', anim:'slide-l'},
+      pleading_puppy_eyes:{pos:'bc', anim:'fade-in'},
+      satisfied_mwah:     {pos:'br', anim:'pop'}
+    };
+
+    const deck = new Reveal({ hash:true, progress:true, slideNumber:true, plugins:[ RevealNotes, RevealSearch, RevealZoom ] });
+    deck.initialize();
+
+    function spawnMinis(slide){
+      // clear existing on this slide
+      slide.querySelectorAll('img.mini').forEach(el=>el.remove());
+      const tag = slide.dataset.mini;
+      if(!tag) return;
+      tag.split(',').map(v=>v.trim()).forEach((id,i)=>{
+        const url = MINI[id]; if(!url) return;
+        const preset = PRESETS[id] || {pos:'br', anim:'fade-in'};
+        const img = document.createElement('img');
+        img.src = url; img.alt = id; img.className = `mini ${preset.anim}`;
+        img.dataset.pos = preset.pos;
+        img.style.setProperty('--mini-size', '92px');
+        img.style.animationDelay = (i*160)+'ms';
+        slide.appendChild(img);
+        if(!preset.anim) img.classList.add('fade-in');
+      });
+    }
+
+    deck.on('ready', e => {
+      spawnMinis(deck.getCurrentSlide());
+    });
+    deck.on('slidechanged', e => {
+      // cleanup old & spawn new
+      spawnMinis(e.previousSlide || e.currentSlide);
+      spawnMinis(e.currentSlide);
+    });
+
+    // Charts (placeholder data)
+    function charts(){
+      const el1 = document.getElementById('lineRetention');
+      if(el1 && !el1.dataset.rendered){
+        new Chart(el1, {
+          type: 'line',
+          data: {
+            labels: ['W1','W2','W3','W4','W5','W6','W7','W8'],
+            datasets: [
+              {label:'Student plan', data:[100,78,72,70,68,66,65,64], tension:.35},
+              {label:'Corporate plan', data:[100,82,78,74,70,67,65,63], tension:.35}
+            ]
+          },
+          options:{ responsive:true, plugins:{ legend:{position:'bottom'} } }
+        });
+        el1.dataset.rendered=1;
+      }
+      const el2 = document.getElementById('barPlans');
+      if(el2 && !el2.dataset.rendered){
+        new Chart(el2, {
+          type:'bar',
+          data:{
+            labels:['Daily','Weekly'],
+            datasets:[
+              {label:'Sign-ups', data:[1200, 800]},
+              {label:'Churn %', data:[18, 12]}
+            ]
+          },
+          options:{ responsive:true, plugins:{ legend:{position:'bottom'} } }
+        });
+        el2.dataset.rendered=1;
+      }
+    }
+    deck.on('slidechanged', charts);
+    deck.on('ready', charts);
+  </script>
+</body>
+</html>
