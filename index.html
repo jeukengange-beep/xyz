@@ -72,17 +72,13 @@
     .list-clean li { display:flex; justify-content:space-between; gap:18px; font-size:.75em; }
     .list-clean span { color:var(--muted); }
     .transition { font-size:1.1em; color:var(--muted); max-width:28ch; }
-    .mini{ width:var(--mini-size,96px); position:absolute; opacity:0; filter:drop-shadow(0 12px 24px rgba(0,0,0,.12)); animation-fill-mode:both; }
+    .mini{ width:var(--mini-size,96px); position:absolute; filter:drop-shadow(0 12px 24px rgba(0,0,0,.12)); }
     .mini[data-pos="tl"]{ top:28px; left:32px; }
     .mini[data-pos="tr"]{ top:28px; right:32px; }
     .mini[data-pos="bl"]{ bottom:28px; left:32px; }
     .mini[data-pos="br"]{ bottom:28px; right:32px; }
     .mini[data-pos="tc"]{ top:24px; left:50%; transform:translateX(-50%); }
     .mini[data-pos="bc"]{ bottom:24px; left:50%; transform:translateX(-50%); }
-    @keyframes fadeIn { from{opacity:0; transform:translateY(12px);} to{opacity:1; transform:translateY(0);} }
-    @keyframes pop { 0%{opacity:0; transform:scale(.7);} 60%{opacity:1; transform:scale(1.08);} 100%{transform:scale(1);} }
-    .fade-in{ animation:fadeIn .7s ease-out forwards; }
-    .pop{ animation:pop .6s ease-out forwards; }
     .section-label { text-transform:uppercase; letter-spacing:.24em; font-size:.55em; color:var(--orange-dark); margin-bottom:12px; display:block; }
     .intro-card { display:flex; flex-direction:column; gap:24px; max-width:640px; }
     .intro-brand { display:flex; align-items:center; gap:16px; }
@@ -603,7 +599,7 @@
         </div>
       </section>
 
-      <section data-background-color="#ffffff" data-mini="founder_tl,founder_br">
+      <section data-background-color="#ffffff" data-mini="founder_heart_tl,founder_heart_br">
         <div class="intro-card">
           <h2>Thank you!</h2>
           <p>This go-to-market plan was created for the AltSchool Africa Product Marketing First Semester Exam (2025).</p>
@@ -612,7 +608,6 @@
             <span><strong>Personal email</strong> jeukengange@gmail.com</span>
             <span><strong>Professional email</strong> bonjour@micheltegofack.com</span>
           </div>
-          <p class="muted">Ready to share the Reveal.js version and the PDF export via Google Drive upon request.</p>
         </div>
         <aside class="notes">Close with gratitude, restate the exam context, and confirm availability for walkthroughs before submission.</aside>
       </section>
@@ -630,13 +625,17 @@
       founder_tl:"https://res.cloudinary.com/diuvvyatm/image/upload/v1761390859/gentle_smile_sojuto.png",
       founder_tr:"https://res.cloudinary.com/diuvvyatm/image/upload/v1761390859/gentle_smile_sojuto.png",
       founder_bl:"https://res.cloudinary.com/diuvvyatm/image/upload/v1761390859/gentle_smile_sojuto.png",
-      founder_br:"https://res.cloudinary.com/diuvvyatm/image/upload/v1761390859/gentle_smile_sojuto.png"
+      founder_br:"https://res.cloudinary.com/diuvvyatm/image/upload/v1761390859/gentle_smile_sojuto.png",
+      founder_heart_tl:"https://res.cloudinary.com/diuvvyatm/image/upload/v1761390862/love_heart_lwokcx.png",
+      founder_heart_br:"https://res.cloudinary.com/diuvvyatm/image/upload/v1761390862/love_heart_lwokcx.png"
     };
     const PRESETS = {
-      founder_tl:{pos:'tl', anim:'pop'},
-      founder_tr:{pos:'tr', anim:'fade-in'},
-      founder_bl:{pos:'bl', anim:'fade-in'},
-      founder_br:{pos:'br', anim:'pop'}
+      founder_tl:{pos:'tl'},
+      founder_tr:{pos:'tr'},
+      founder_bl:{pos:'bl'},
+      founder_br:{pos:'br'},
+      founder_heart_tl:{pos:'tl'},
+      founder_heart_br:{pos:'br'}
     };
 
     const deck = new Reveal({
@@ -657,16 +656,14 @@
       tag.split(',').map(v=>v.trim()).forEach((id,i)=>{
         const url = MINI[id];
         if(!url) return;
-        const preset = PRESETS[id] || {pos:'br', anim:'fade-in'};
+        const preset = PRESETS[id] || {pos:'br'};
         const img = document.createElement('img');
         img.src = url;
         img.alt = id;
-        img.className = `mini ${preset.anim}`;
+        img.className = 'mini';
         img.dataset.pos = preset.pos;
         img.style.setProperty('--mini-size','112px');
-        img.style.animationDelay = (i*180)+'ms';
         slide.appendChild(img);
-        if(!preset.anim) img.classList.add('fade-in');
       });
     }
 
