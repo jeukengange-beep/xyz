@@ -12,36 +12,36 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --ink:#22180f;
-      --muted:#6f655c;
+      --ink:#21170e;
+      --muted:#6d6156;
       --orange:#ff7a21;
-      --orange-dark:#e55b13;
-      --rose:#f9b3a2;
+      --orange-dark:#d75a11;
+      --peach:#ffd9b5;
       --sun:#ffd166;
       --cream:#fff5eb;
-      --pearl:#fffcf8;
-      --sand:#f7e4ce;
-      --stroke:rgba(229,93,19,.22);
-      --shadow:0 14px 40px rgba(224,137,68,.14);
+      --pearl:#ffffff;
+      --sand:#f8e7d4;
+      --stroke:rgba(215,90,17,.22);
+      --shadow:0 18px 48px rgba(215,90,17,.12);
     }
     body { background:var(--pearl); }
-    .reveal { font-family:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif; color:var(--ink); font-size:28px; }
+    .reveal { font-family:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif; color:var(--ink); font-size:24px; }
     .reveal .slides { text-align:left; }
-    .reveal section { padding:0 7vw; }
+    .reveal section { padding:0 10vw; display:flex; flex-direction:column; gap:28px; }
     .reveal h1, .reveal h2, .reveal h3 { font-weight:700; letter-spacing:-.01em; color:var(--ink); }
-    .reveal h1 { font-size:2.2em; max-width:14ch; line-height:1.1; }
-    .reveal h2 { font-size:1.7em; margin-bottom:24px; }
-    .reveal h3 { font-size:1.15em; margin-bottom:12px; }
-    .reveal p, .reveal li { line-height:1.5; }
-    .reveal ul { padding-left:1.2em; }
+    .reveal h1 { font-size:2em; max-width:16ch; line-height:1.08; }
+    .reveal h2 { font-size:1.55em; margin-bottom:12px; }
+    .reveal h3 { font-size:1.05em; margin-bottom:10px; }
+    .reveal p, .reveal li { line-height:1.55; max-width:68ch; }
+    .reveal ul { padding-left:1.1em; }
     .tag { display:inline-flex; align-items:center; gap:8px; text-transform:uppercase; font-size:.55em; letter-spacing:.18em; background:rgba(255,122,33,.12); border:1px solid rgba(255,122,33,.35); color:var(--orange-dark); padding:.45em .9em; border-radius:999px; }
     .btn-link { display:inline-flex; align-items:center; gap:6px; font-weight:600; color:var(--orange-dark); text-decoration:none; border-bottom:2px solid transparent; padding-bottom:2px; }
     .btn-link:hover { border-bottom-color:var(--orange-dark); }
-    .intro-meta { display:flex; flex-wrap:wrap; gap:14px 28px; font-size:.7em; color:var(--muted); margin-top:32px; }
-    .grid-2 { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:32px; align-items:start; }
-    .grid-3 { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:28px; align-items:start; }
-    .card { background:rgba(255,255,255,.92); border:1px solid var(--stroke); border-radius:24px; padding:28px; box-shadow:var(--shadow); }
-    .soft { background:rgba(255,250,244,.94); }
+    .grid-2 { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:36px; align-items:start; }
+    .grid-3 { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:30px; align-items:start; }
+    .card { background:rgba(255,255,255,.95); border:1px solid var(--stroke); border-radius:28px; padding:28px; box-shadow:var(--shadow); }
+    .card img { width:100%; border-radius:20px; object-fit:cover; margin-top:12px; box-shadow:0 16px 28px rgba(0,0,0,.08); }
+    .soft { background:rgba(255,244,233,.9); }
     .muted { color:var(--muted); font-size:.7em; }
     table { width:100%; border-collapse:collapse; font-size:.7em; letter-spacing:.01em; }
     table th, table td { padding:14px 18px; border-bottom:1px solid rgba(229,93,19,.16); text-align:left; }
@@ -51,27 +51,27 @@
     .accent { color:var(--orange-dark); }
     .pill { display:inline-flex; align-items:center; gap:6px; background:rgba(255,209,102,.35); border-radius:999px; padding:.4em 1em; font-size:.65em; }
     .timeline { display:flex; flex-direction:column; gap:24px; }
-    .timeline .milestone { background:rgba(255,255,255,.92); border-radius:20px; border:1px solid var(--stroke); padding:22px; box-shadow:var(--shadow); }
+    .timeline .milestone { background:rgba(255,255,255,.95); border-radius:24px; border:1px solid var(--stroke); padding:22px; box-shadow:var(--shadow); }
     .timeline .badge { display:inline-block; font-size:.6em; text-transform:uppercase; letter-spacing:.14em; color:var(--orange-dark); margin-bottom:12px; }
     .tiles { display:grid; gap:18px; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); }
     .tiles .tile { border-radius:20px; padding:22px; border:1px solid rgba(229,93,19,.18); background:rgba(255,255,255,.94); box-shadow:var(--shadow); }
     .tiles .tile strong { display:block; font-size:.9em; margin-bottom:10px; color:var(--orange-dark); }
-    .journey { display:grid; gap:24px; grid-template-columns:repeat(4,minmax(0,1fr)); font-size:.75em; }
-    .journey .stage { background:rgba(255,255,255,.92); border-radius:18px; border:1px solid var(--stroke); padding:20px; box-shadow:var(--shadow); }
-    .journey .stage span { display:block; margin-top:12px; color:var(--muted); font-size:.9em; }
+    .journey { display:grid; gap:24px; grid-template-columns:repeat(4,minmax(0,1fr)); font-size:.78em; }
+    .journey .stage { background:rgba(255,255,255,.95); border-radius:20px; border:1px solid var(--stroke); padding:20px; box-shadow:var(--shadow); }
+    .journey .stage span { display:block; margin-top:12px; color:var(--muted); font-size:.92em; }
     .impact-table { background:rgba(255,255,255,.92); border:1px solid var(--stroke); border-radius:22px; overflow:hidden; box-shadow:var(--shadow); }
     .impact-table table { margin:0; }
-    .story-grid { display:grid; gap:28px; grid-template-columns:1.2fr .8fr; align-items:center; }
-    .story-card { background:rgba(255,255,255,.9); border-radius:24px; padding:28px; border:1px solid rgba(229,93,19,.16); box-shadow:var(--shadow); }
-    .frame { border:2px dashed rgba(229,93,19,.35); border-radius:20px; padding:24px; text-align:center; color:var(--muted); font-size:.7em; }
-    .story-step { font-size:.75em; color:var(--muted); margin-top:16px; }
+    .story-grid { display:grid; gap:28px; grid-template-columns:repeat(2,minmax(0,1fr)); align-items:start; }
+    .story-card { background:rgba(255,255,255,.95); border-radius:28px; padding:26px; border:1px solid rgba(215,90,17,.22); box-shadow:var(--shadow); display:flex; flex-direction:column; gap:12px; }
+    .story-card img { width:100%; border-radius:20px; object-fit:cover; box-shadow:0 16px 28px rgba(0,0,0,.08); }
+    .story-step { font-size:.78em; color:var(--muted); }
     .roadmap { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:28px; }
-    .roadmap .card h3 { font-size:1em; margin-bottom:16px; }
-    .roadmap ul { padding-left:1em; font-size:.75em; }
+    .roadmap .card h3 { font-size:.95em; margin-bottom:16px; }
+    .roadmap ul { padding-left:1em; font-size:.78em; }
     .list-clean { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:12px; }
     .list-clean li { display:flex; justify-content:space-between; gap:18px; font-size:.75em; }
     .list-clean span { color:var(--muted); }
-    .transition { font-size:1.2em; color:var(--muted); max-width:26ch; }
+    .transition { font-size:1.1em; color:var(--muted); max-width:28ch; }
     .mini{ width:var(--mini-size,96px); position:absolute; opacity:0; filter:drop-shadow(0 12px 24px rgba(0,0,0,.12)); animation-fill-mode:both; }
     .mini[data-pos="tl"]{ top:28px; left:32px; }
     .mini[data-pos="tr"]{ top:28px; right:32px; }
@@ -83,23 +83,40 @@
     @keyframes pop { 0%{opacity:0; transform:scale(.7);} 60%{opacity:1; transform:scale(1.08);} 100%{transform:scale(1);} }
     .fade-in{ animation:fadeIn .7s ease-out forwards; }
     .pop{ animation:pop .6s ease-out forwards; }
-    .section-label { text-transform:uppercase; letter-spacing:.24em; font-size:.55em; color:var(--orange-dark); margin-bottom:32px; display:block; }
+    .section-label { text-transform:uppercase; letter-spacing:.24em; font-size:.55em; color:var(--orange-dark); margin-bottom:12px; display:block; }
+    .intro-card { display:flex; flex-direction:column; gap:24px; max-width:640px; }
+    .intro-brand { display:flex; align-items:center; gap:16px; }
+    .intro-brand img { width:82px; height:82px; object-fit:contain; }
+    .intro-meta { display:flex; flex-direction:column; gap:10px; font-size:.7em; color:var(--muted); }
+    .contact-grid { display:grid; gap:10px; font-size:.7em; color:var(--muted); }
+    .contact-grid span { display:flex; flex-direction:column; gap:2px; }
   </style>
 </head>
 <body>
   <div class="reveal">
     <div class="slides">
 
-      <section data-background-color="#fffcf8" data-mini="cool_shades,love_heart">
-        <span class="tag">AltSchool Africa · Product Marketing · Semester 1 Exam</span>
-        <h1>XYZ Express Meal Subscription Plan</h1>
-        <p class="pill">Prepared by Michel Tchassem — Douala &amp; Yaoundé launch</p>
-        <div class="intro-meta">
-          <span>Focus: Market research · Segmentation · Positioning</span>
-          <span>Deliverable format: Reveal.js 16:9 · PDF export ready</span>
-          <a class="btn-link" href="index.html" target="_blank" rel="noopener">View on the web ↗</a>
+      <section data-background-color="#ffffff" data-mini="founder_tl,founder_tr,founder_bl,founder_br">
+        <div class="intro-card">
+          <div class="intro-brand">
+            <img src="https://res.cloudinary.com/diuvvyatm/image/upload/v1761401941/Gemini_Generated_Image_h21kvfh21kvfh21k_leq4uc.png" alt="XYZ Express logo">
+            <div>
+              <span class="tag">AltSchool Africa · Product Marketing · First Semester Exam · 2025</span>
+              <h1>XYZ Express Meal Subscription Plan</h1>
+            </div>
+          </div>
+          <p>Designing a predictable, joyful meal subscription for Douala and Yaounde that proves product-market fit before launch.</p>
+          <div class="intro-meta">
+            <span><strong>Submitted by:</strong> TEGOFACK JEUKENG Ange Michel</span>
+            <span><strong>Exam context:</strong> AltSchool Africa — Product Marketing First Semester Assessment</span>
+            <a class="btn-link" href="index.html" target="_blank" rel="noopener">View on the web ↗</a>
+          </div>
+          <div class="contact-grid">
+            <span><strong>Personal email</strong> jeukengange@gmail.com</span>
+            <span><strong>Professional email</strong> bonjour@micheltegofack.com</span>
+          </div>
         </div>
-        <aside class="notes">Presenter welcome. Mention that the deck follows the AltSchool brief exactly and that the View on the web link opens the HTML experience before PDF export.</aside>
+        <aside class="notes">Welcome the evaluators, highlight that this web-first version will be exported to PDF, and point to the View on the web link for the interactive format.</aside>
       </section>
 
       <section data-background-color="#fff5eb">
@@ -127,7 +144,7 @@
         <div class="grid-2">
           <div class="card">
             <h3>Core tension</h3>
-            <p>Douala &amp; Yaoundé residents want nutritious meals that arrive when promised, yet existing delivery apps focus on à-la-carte convenience, not predictability.</p>
+            <p>Douala &amp; Yaounde residents want nutritious meals that arrive when promised, yet existing delivery apps focus on a-la-carte convenience, not predictability.</p>
             <ul>
               <li>Kitchen space is shrinking while workdays extend beyond 6pm.</li>
               <li>Parents &amp; teams spend excess time coordinating meals.</li>
@@ -170,87 +187,6 @@
         </aside>
       </section>
 
-      <!-- MARKET & VALIDATION (vertical stack) -->
-      <section data-background-color="#0f172a" data-mini="idea_eureka">
-        <section data-background-color="#0f172a">
-          <h2>Why this launch, why now?</h2>
-          <ul>
-            <li class="fragment">Urban cores add +6% new renters yearly &mdash; kitchens are shrinking, delivery spend +28% YoY.</li>
-            <li class="fragment">Current delivery players miss lunch SLAs 1-in-3 times during peak traffic.</li>
-            <li class="fragment">Surveyed 212 residents: 64% would prepay weekly if time slots &amp; diet choices were guaranteed.</li>
-          </ul>
-          <aside class="notes">Underline that we validated pain via secondary data and our own pulse survey last month.</aside>
-        </section>
-        <section data-background-color="#0f172a">
-          <h2>Market Signals &amp; Opportunity</h2>
-          <div class="insights">
-            <div class="card">
-              <h3>Douala</h3>
-              <p class="muted">400k targetable professionals within 10km of hubs.</p>
-              <ul>
-                <li>Lunch spend 23,000 FCFA/week</li>
-                <li>Top friction: unreliable delivery (57%)</li>
-              </ul>
-            </div>
-            <div class="card">
-              <h3>Yaoundé</h3>
-              <p class="muted">Large campus population + ministries cluster.</p>
-              <ul>
-                <li>Students accept subscriptions up to 18,000 FCFA</li>
-                <li>Offices prefer consolidated billing</li>
-              </ul>
-            </div>
-            <div class="card">
-              <h3>Operational Edge</h3>
-              <p class="muted">Existing ghost kitchen network currently idle off-peak.</p>
-              <ul>
-                <li>Batch cooking reduces COGS by 14%</li>
-                <li>Shared riders for both cities already contracted</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-        <section data-background-color="#0f172a">
-          <h2>Validation Plan</h2>
-          <div class="grid-2">
-            <div class="card">
-              <h3>Primary Research</h3>
-              <ul>
-                <li>12 in-depth interviews with student &amp; SMB leads</li>
-                <li>2-week concierge MVP with WhatsApp ordering</li>
-                <li>Daily NPS pulse + delivery incident logs</li>
-              </ul>
-            </div>
-            <div class="card">
-              <h3>Secondary Research</h3>
-              <ul>
-                <li>Benchmark subscription models (HelloFood, JumiaFood)</li>
-                <li>Analyze rent &amp; commute data for hub placement</li>
-                <li>Review Ministry of Health nutrition policies</li>
-              </ul>
-            </div>
-          </div>
-          <aside class="notes">Clarify we have customer validation in motion; deck appendix hosts transcripts and cost models.</aside>
-        </section>
-        <section data-background-color="#0f172a">
-          <h2>Validation Timeline</h2>
-          <div class="timeline">
-            <div class="milestone">
-              <div class="badge">Week 0-2</div>
-              <p><strong>Problem Fit</strong><br>Recruit interviewees, map top 3 meal jobs-to-be-done.</p>
-            </div>
-            <div class="milestone">
-              <div class="badge">Week 3-6</div>
-              <p><strong>MVP Cohort</strong><br>Run 50 households + 6 teams on concierge plan, measure churn drivers.</p>
-            </div>
-            <div class="milestone">
-              <div class="badge">Week 7-10</div>
-              <p><strong>Scale Readiness</strong><br>Roll out branded subscription portal, finalize ops SLAs and pricing.</p>
-            </div>
-          </div>
-        </section>
-      </section>
-
       <section data-background-color="#fff1e1">
         <h2>Demand validation research plan</h2>
         <div class="grid-2">
@@ -291,6 +227,31 @@
             <p class="muted">Gate: Pricing &amp; messaging validated through simulated checkout.</p>
           </div>
         </div>
+      </section>
+
+      <section data-background-color="#fff1e1">
+        <h2>Competitive snapshot</h2>
+        <div class="grid-2">
+          <div class="card soft">
+            <h3>Tchop &amp; Yamo</h3>
+            <ul>
+              <li>Focuses on Cameroonian comfort meals and seasonal menus.</li>
+              <li>Strong social engagement but inconsistent delivery windows.</li>
+              <li>Opportunity: Emphasize XYZ&apos;s scheduled slots and concierge care.</li>
+            </ul>
+            <img src="https://res.cloudinary.com/diuvvyatm/image/upload/v1761401565/Screenshot_20251025-144103_t127jq.jpg" alt="Screenshot of Tchop &amp; Yamo Facebook page.">
+          </div>
+          <div class="card">
+            <h3>K.My Choice</h3>
+            <ul>
+              <li>Promotes office catering with broad buffet options.</li>
+              <li>Limited subscription messaging; relies on ad-hoc ordering.</li>
+              <li>Opportunity: Position XYZ as the predictable weekly partner with data-rich reporting.</li>
+            </ul>
+            <img src="https://res.cloudinary.com/diuvvyatm/image/upload/v1761401564/Screenshot_20251025-144243_n58jae.jpg" alt="Screenshot of K.My Choice Facebook page.">
+          </div>
+        </div>
+        <p class="muted">Both competitors reinforce demand for culturally resonant meals while leaving a gap for reliability and subscription-first experiences.</p>
       </section>
 
       <section data-background-color="#fff1e1">
@@ -353,68 +314,68 @@
             </tbody>
           </table>
         </div>
-        <aside class="notes">Connect segmentation to persona slides that follow.</aside>
+        <aside class="notes">Explain this is forward-looking: how we will understand why customers subscribe or not, per the exam brief.</aside>
       </section>
 
       <section data-background-color="#fff5eb">
-        <h2>Persona · Jeanne (L&apos;Étudiante Pressée)</h2>
+        <h2>Persona · Jeanne — Focused Nursing Intern</h2>
         <div class="grid-2">
           <div class="card">
             <ul>
-              <li>24 ans, infirmière stagiaire à Douala, coloc avec 2 amies.</li>
-              <li>Objectif: manger équilibré &lt; 70 000 FCFA/mois sans cuisiner après les gardes.</li>
-              <li>Déclencheur: reprise de stage intensif + besoin de repas sûrs à midi.</li>
-              <li>Objections: peur d&apos;engagement trop long, méfiance vis-à-vis des riders.</li>
+              <li>24 years old, nursing intern in Douala, shares an apartment with two roommates.</li>
+              <li>Goal: Eat balanced meals under 70,000 FCFA per month without cooking after evening shifts.</li>
+              <li>Trigger: Intensive hospital rotation resumes and she needs reliable midday meals.</li>
+              <li>Objections: Worries about long commitments and rider professionalism.</li>
             </ul>
           </div>
           <div class="story-card">
-            <h3>Ce que nous lui offrons</h3>
+            <h3>How XYZ serves Jeanne</h3>
             <ul>
-              <li>Plan &laquo; Étudiante Flex &raquo; : livraison garantie avant 11h45, 3 pauses gratuites / semestre.</li>
-              <li>Programme parrainage colocataire &rarr; crédit repas.</li>
-              <li>Notifications WhatsApp + suivi de calories.</li>
+              <li><strong>Student Flex plan</strong> — guaranteed delivery by 11:45 a.m. with three pause credits per semester.</li>
+              <li><strong>Roommate referral</strong> — earns meal credits when friends subscribe.</li>
+              <li><strong>WhatsApp concierge</strong> — reminders, nutrition snapshots, and swap requests.</li>
             </ul>
-            <p class="muted">Succès: 80% des étudiantes pilotes renouvellent après 4 semaines.</p>
+            <p class="muted">Success signal: ≥80% of student pilots renew after four weeks.</p>
           </div>
         </div>
       </section>
 
       <section data-background-color="#fff5eb">
-        <h2>Persona · Daniel (Le Responsable Ops)</h2>
+        <h2>Persona · Daniel — Operations Lead</h2>
         <div class="grid-2">
           <div class="card">
             <ul>
-              <li>Responsable support client, 18 collaborateurs en rotation à Yaoundé.</li>
-              <li>Objectif: repas ponctuels, facture unique, menus adaptés aux shifts.</li>
-              <li>Déclencheur: plainte récurrente sur retards de traiteurs actuels.</li>
-              <li>Objections: qualité constante, preuve de conformité hygiène.</li>
+              <li>Heads customer support for an 18-person team in Yaounde with rotating shifts.</li>
+              <li>Goal: Reliable meals, a single invoice, and menus that match day and night crews.</li>
+              <li>Trigger: Escalating complaints about late caterers impacting service levels.</li>
+              <li>Objections: Needs proof of consistent quality and hygiene compliance.</li>
             </ul>
           </div>
           <div class="story-card">
-            <h3>Ce que nous lui offrons</h3>
+            <h3>How XYZ serves Daniel</h3>
             <ul>
-              <li>Portail &laquo; Team Pulse &raquo; : menus publiés 7 jours à l&apos;avance, suivi SLA en direct.</li>
-              <li>Facturation mensuelle + tableau export CSV.</li>
-              <li>Compte manager dédié &amp; sessions dégustation trimestrielles.</li>
+              <li><strong>Team Pulse portal</strong> — menus published seven days ahead with live SLA tracking.</li>
+              <li><strong>Consolidated billing</strong> — monthly invoice plus CSV export for finance.</li>
+              <li><strong>Dedicated account manager</strong> — quarterly tasting sessions and onboarding toolkit.</li>
             </ul>
-            <p class="muted">Succès: signer 5 comptes pilotes &rarr; 150 repas quotidiens.</p>
+            <p class="muted">Success signal: Sign five pilot accounts that total 150 daily meals.</p>
           </div>
         </div>
       </section>
 
       <section data-background-color="#fff5eb">
-        <h2>Impact des personas sur l&apos;offre</h2>
+        <h2>How personas shape the plan</h2>
         <div class="impact-table">
           <table>
-            <thead><tr><th>Levier</th><th>Jeanne</th><th>Daniel</th></tr></thead>
+            <thead><tr><th>Lever</th><th>Jeanne</th><th>Daniel</th></tr></thead>
             <tbody>
-              <tr><td>Fonctionnalités produit</td><td>Calendrier de pauses, recommandations de menus riches en énergie.</td><td>Dashboard SLA, menus multi-shifts, reporting allergènes.</td></tr>
-              <tr><td>Stratégie marketing</td><td>TikTok campus, ambassadeurs étudiants, offres &laquo; premier mois doux &raquo;.</td><td>LinkedIn case studies, e-mails ROI, webinars &laquo; lunch ops &raquo;.</td></tr>
-              <tr><td>Approche commerciale</td><td>Concierge WhatsApp, essais de 5 jours, support en soirée.</td><td>Account-based selling, essais gratuits déjeuners, contrat SLA.</td></tr>
+              <tr><td>Product features</td><td>Pause calendar, energy-focused menu recommendations, nutrition badges.</td><td>SLA dashboard, multi-shift menus, allergen reporting.</td></tr>
+              <tr><td>Marketing strategy</td><td>Campus TikTok creators, student ambassadors, “gentle first month” offers.</td><td>LinkedIn case studies, ROI emails, “lunch ops” webinars.</td></tr>
+              <tr><td>Sales approach</td><td>WhatsApp concierge trials, five-day tastings, evening support hours.</td><td>Account-based outreach, free lunch trials, SLA-backed contracts.</td></tr>
             </tbody>
           </table>
         </div>
-        <aside class="notes">Relier explicitement les personas aux features, marketing et ventes comme exigé par le brief.</aside>
+        <aside class="notes">Spell out how persona insights translate into feature, marketing, and sales choices to satisfy the brief.</aside>
       </section>
 
       <section data-background-color="#ffe8cf">
@@ -423,19 +384,19 @@
         <div class="journey">
           <div class="stage">
             <strong>Awareness</strong>
-            <span>Jeanne découvre une vidéo &laquo; meal prep sans stress &raquo; sur TikTok.</span>
+            <span>Jeanne watches a “no-stress meal prep” TikTok featuring XYZ Express.</span>
           </div>
           <div class="stage">
             <strong>Consideration</strong>
-            <span>Elle reçoit un guide budget via WhatsApp et échange avec un concierge.</span>
+            <span>She receives a WhatsApp budget guide and chats with a concierge about meal goals.</span>
           </div>
           <div class="stage">
             <strong>Subscription</strong>
-            <span>Activation en 10 minutes, paiement mobile money hebdomadaire.</span>
+            <span>She activates in ten minutes and confirms weekly mobile money payments.</span>
           </div>
           <div class="stage">
             <strong>Retention</strong>
-            <span>Points fidélité + surprises &laquo; révision sans faim &raquo; à chaque 8 repas.</span>
+            <span>Loyalty points and “exam fuel” surprises arrive every eight meals.</span>
           </div>
         </div>
       </section>
@@ -446,7 +407,7 @@
         <div class="grid-2">
           <div class="card">
             <h3>Statement</h3>
-            <p><strong>For</strong> busy households and growth-focused teams in Douala &amp; Yaoundé<br><strong>Who</strong> need reliable, nutritious meals without daily coordination,<br><strong>XYZ Express</strong> is a hybrid meal subscription that guarantees scheduled delivery windows and culturally relevant menus.<br><strong>Unlike</strong> on-demand apps or single-chef services,<br>we manage prep-to-door operations with certified hubs, vetted riders, and a concierge onboarding squad.</p>
+          <p><strong>For</strong> busy households and growth-focused teams in Douala &amp; Yaounde<br><strong>Who</strong> need reliable, nutritious meals without daily coordination,<br><strong>XYZ Express</strong> is a hybrid meal subscription that guarantees scheduled delivery windows and culturally relevant menus.<br><strong>Unlike</strong> on-demand apps or single-chef services,<br>we manage prep-to-door operations with certified hubs, vetted riders, and a concierge onboarding squad.</p>
           </div>
           <div class="card">
             <h3>Reasons to believe</h3>
@@ -463,19 +424,19 @@
         <h2>Value propositions</h2>
         <div class="grid-2">
           <div class="card">
-            <h3>Individus &amp; familles</h3>
+            <h3>Individuals &amp; families</h3>
             <ul>
-              <li>Livraisons prévues pour chaque créneau critique (midi &amp; soir).</li>
-              <li>Plans flexibles: Étudiant, Duo Actif, Famille Week-end.</li>
-              <li>Transparence nutritionnelle + options végétariennes / sans gluten.</li>
+              <li>Scheduled deliveries for every critical window (lunch and dinner).</li>
+              <li>Flexible plans: Student Flex, Active Duo, Weekend Family bundles.</li>
+              <li>Transparent nutrition data plus vegetarian and gluten-free paths.</li>
             </ul>
           </div>
           <div class="card">
-            <h3>Entreprises &amp; partenaires</h3>
+            <h3>Businesses &amp; partners</h3>
             <ul>
-              <li>Facture unique + reporting SLA pour RH et Finance.</li>
-              <li>Menu corporate modulable par shift + collations réunions.</li>
-              <li>Programme ambassadeurs &amp; co-branding pour partenaires.</li>
+              <li>Single invoice with SLA reporting for HR and Finance.</li>
+              <li>Shift-based corporate menus with add-on snacks for meetings.</li>
+              <li>Ambassador program and co-branding kits for partners.</li>
             </ul>
           </div>
         </div>
@@ -487,9 +448,9 @@
           <table>
             <thead><tr><th>Audience</th><th>Key message</th><th>Proof / Asset</th><th>CTA &amp; channel</th></tr></thead>
             <tbody>
-              <tr><td>Consommateurs</td><td>&laquo; Vos repas à l&apos;heure, même les jours de rush.&raquo;</td><td>Calendrier pause, tracking temps réel, témoignage étudiant.</td><td>WhatsApp concierge · Essayer 1 semaine</td></tr>
-              <tr><td>Corporate</td><td>&laquo; Une seule facture, zéro retard.&raquo;</td><td>SLA 45 min, dashboard en démo, dégustation gratuite.</td><td>LinkedIn &amp; e-mail ciblé · Réserver une dégustation</td></tr>
-              <tr><td>Investisseurs / partenaires</td><td>&laquo; Marché récurrent à forte marge, hubs prêts.&raquo;</td><td>Capacité hub, accords fournisseurs, plan d&apos;expansion.</td><td>Deck investisseur · Planifier un call</td></tr>
+              <tr><td>Consumers</td><td>“Meals arrive on time, even on your busiest days.”</td><td>Pause calendar, live tracking, student testimonial video.</td><td>WhatsApp concierge · Start a one-week trial</td></tr>
+              <tr><td>Corporate teams</td><td>“One invoice, zero delivery surprises.”</td><td>45-minute SLA, dashboard demo, complimentary tasting.</td><td>LinkedIn + targeted email · Book a tasting</td></tr>
+              <tr><td>Investors &amp; partners</td><td>“Recurring margins with hubs ready to scale.”</td><td>Hub capacity snapshot, supplier agreements, expansion roadmap.</td><td>Investor deck · Schedule a call</td></tr>
             </tbody>
           </table>
         </div>
@@ -497,47 +458,39 @@
 
       <section data-background-color="#ffe0c7">
         <span class="section-label">storytelling</span>
-        <h2>Hero&apos;s Journey · Jeanne</h2>
+        <h2>Hero&apos;s journey — Jeanne</h2>
         <div class="story-grid">
-          <div>
-            <div class="story-card">
-              <h3>1. Monde ordinaire</h3>
-              <p>Jeanne jongle entre gardes à l&apos;hôpital et révisions nocturnes. Ses repas dépendent des snacks disponibles, elle saute souvent le déjeuner.</p>
-              <p class="story-step">Pain: fatigue, dépenses impulsives.</p>
-            </div>
-            <div class="story-card">
-              <h3>2. Appel à l&apos;aventure</h3>
-              <p>Une camarade partage son expérience concierge XYZ Express. Jeanne reçoit une invitation pour un essai gratuit de 5 jours.</p>
-              <p class="story-step">Déclencheur: besoin d&apos;un rythme stable avant les examens.</p>
-            </div>
+          <div class="story-card">
+            <h3>1. Ordinary world</h3>
+            <p>Jeanne juggles hospital shifts and late-night studying, often skipping meals or grabbing snacks that drain her budget.</p>
+            <img src="https://res.cloudinary.com/diuvvyatm/image/upload/v1761403463/Gemini_Generated_Image_qstmd9qstmd9qstm_hspvmj.png" alt="Jeanne exhausted during a hospital break holding a snack.">
+            <p class="story-step">Pain: fatigue, impulsive spending, no dependable meal rhythm.</p>
           </div>
-          <div>
-            <div class="frame">Visuel à insérer — photo de Jeanne recevant son box repas</div>
-            <div class="frame">Visuel à insérer — capture d&apos;écran WhatsApp concierge</div>
+          <div class="story-card">
+            <h3>2. Call to adventure</h3>
+            <p>A classmate shares her concierge experience with XYZ Express and invites Jeanne to test a five-day plan.</p>
+            <img src="https://res.cloudinary.com/diuvvyatm/image/upload/v1761403446/Gemini_Generated_Image_e1f2eje1f2eje1f2_t5lmwo.png" alt="Jeanne reading an XYZ Express invitation on her phone.">
+            <p class="story-step">Trigger: Desire for a stable routine ahead of exam season.</p>
           </div>
         </div>
       </section>
 
       <section data-background-color="#ffe0c7">
         <div class="story-grid">
-          <div>
-            <div class="story-card">
-              <h3>3. Épreuves &amp; alliés</h3>
-              <p>Elle teste la pause automatique quand son planning change, échange des recettes avec d&apos;autres étudiantes via le canal communautaire.</p>
-              <p class="story-step">Preuve: 92% des messages reçoivent réponse &lt; 5 min.</p>
-            </div>
-            <div class="story-card">
-              <h3>4. Transformation</h3>
-              <p>En trois semaines, Jeanne suit un plan alimentaire équilibré et gagne 4 heures par semaine. Elle parraine ses colocataires et profite de crédits repas.</p>
-              <p class="story-step">Résultat recherché: énergie + réussite académique.</p>
-            </div>
+          <div class="story-card">
+            <h3>3. Trials &amp; allies</h3>
+            <p>She experiments with the pause feature as her shifts change and swaps recipes with other students in the community channel.</p>
+            <img src="https://res.cloudinary.com/diuvvyatm/image/upload/v1761403441/Gemini_Generated_Image_n98negn98negn98n_d4cqky.png" alt="XYZ Express app showing a paused meal plan.">
+            <p class="story-step">Proof point: 92% of concierge messages answered in under five minutes.</p>
           </div>
-          <div>
-            <div class="frame">Visuel à insérer — interface pause plan</div>
-            <div class="frame">Visuel à insérer — photo de groupe &laquo; merci &raquo;</div>
+          <div class="story-card">
+            <h3>4. Transformation</h3>
+            <p>Within three weeks Jeanne follows a balanced rotation, gains four hours weekly, and refers her roommates for extra credits.</p>
+            <img src="https://res.cloudinary.com/diuvvyatm/image/upload/v1761403448/Gemini_Generated_Image_olnb16olnb16olnb_hkekii.png" alt="Jeanne celebrating a study session with friends and XYZ Express meals.">
+            <p class="story-step">Outcome: Higher energy, better focus, and community-driven growth.</p>
           </div>
         </div>
-        <aside class="notes">Dérouler le héros: ordinaire → appel → épreuves → transformation. Chaque étape sera enrichie d&apos;images finales.</aside>
+        <aside class="notes">Walk through the hero&apos;s journey: ordinary world, call, trials, and transformation — each tied to specific XYZ Express touchpoints.</aside>
       </section>
 
       <section data-background-color="#ffe8cf">
@@ -545,73 +498,123 @@
         <h2>30·60·90 plan</h2>
         <div class="roadmap">
           <div class="card">
-            <h3>Jours 0–30 · Validation</h3>
+            <h3>Days 0–30 · Validation</h3>
             <ul>
-              <li>Lancer interviews &amp; synthèses JTBD.</li>
-              <li>Signer hubs Bonapriso &amp; Bastos, audit hygiène.</li>
-              <li>Former escouade concierge (4 agents).</li>
+              <li>Launch interviews and jobs-to-be-done synthesis.</li>
+              <li>Secure Bonapriso and Bastos hubs, complete hygiene audits.</li>
+              <li>Train the concierge squad (four agents).</li>
             </ul>
           </div>
           <div class="card">
-            <h3>Jours 31–60 · Pré-lancement</h3>
+            <h3>Days 31–60 · Pre-launch</h3>
             <ul>
-              <li>Opérer concierge MVP &amp; analyser retours.</li>
-              <li>Tester branding &amp; site d&apos;abonnement (beta).</li>
-              <li>Planifier dégustations entreprises (6 cibles).</li>
+              <li>Run the WhatsApp concierge MVP and analyze feedback loops.</li>
+              <li>Test branding and subscription site (beta).</li>
+              <li>Schedule six corporate tastings with target accounts.</li>
             </ul>
           </div>
           <div class="card">
-            <h3>Jours 61–90 · Lancement</h3>
+            <h3>Days 61–90 · Launch</h3>
             <ul>
-              <li>Ouvrir portail auto-gestion &amp; paiements récurrents.</li>
-              <li>Déployer campagne &laquo; Rythme sans stress &raquo; (OOH + digital).</li>
-              <li>Mettre en place boucle win/loss + reporting hebdo.</li>
+              <li>Open the self-serve portal with recurring payments.</li>
+              <li>Deploy the “Rhythm without stress” campaign (OOH + digital).</li>
+              <li>Operationalize the win/loss loop with weekly reporting.</li>
             </ul>
           </div>
         </div>
       </section>
 
       <section data-background-color="#ffe8cf">
-        <h2>Mesures de succès &amp; ressources</h2>
+        <h2>Validation KPIs to monitor</h2>
+        <div class="tiles">
+          <div class="tile">
+            <strong>Discovery</strong>
+            <p>80% of interviews validate three recurring pains around predictability and nutrition.</p>
+          </div>
+          <div class="tile">
+            <strong>Concierge MVP</strong>
+            <p>≥60% trial-to-paid conversion and &lt;10% late deliveries over four weeks.</p>
+          </div>
+          <div class="tile">
+            <strong>Product readiness</strong>
+            <p>Net promoter score ≥35 among early subscribers; churn intent &lt;20% at exit interviews.</p>
+          </div>
+          <div class="tile">
+            <strong>Revenue traction</strong>
+            <p>Monthly recurring revenue run-rate of 6M FCFA with 35% gross margin by week 12.</p>
+          </div>
+        </div>
+        <p class="muted">Each KPI ties back to research, segmentation, and positioning hypotheses and will be iterated as real usage data emerges.</p>
+      </section>
+
+      <section data-background-color="#ffe8cf">
+        <h2>Scenario projections &amp; iteration cadence</h2>
         <div class="grid-2">
-          <div class="card">
-            <h3>Indicateurs clés</h3>
+          <div class="card soft">
+            <h3>Base case (weeks 1–12)</h3>
             <ul>
-              <li>&ge; 60% des testeurs passent au plan payant après 2 semaines.</li>
-              <li>Retards &lt; 10% durant concierge MVP.</li>
-              <li>Satisfaction &gt; 4/5 sur qualité repas et communication.</li>
+              <li>120 household subscriptions and 6 corporate pilots by week 12.</li>
+              <li>Average order value: 18,500 FCFA households · 32,000 FCFA corporate.</li>
+              <li>Gross margin climbs from 28% to 35% as hubs reach 70% capacity.</li>
             </ul>
           </div>
           <div class="card">
-            <h3>Ressources demandées</h3>
+            <h3>Adjustment triggers</h3>
             <ul>
-              <li>Budget 45M FCFA (hubs, riders, marketing, contenu).</li>
-              <li>Équipe: PMM (moi), Ops analyste, Responsable campus, Account manager B2B.</li>
-              <li>Support juridique pour contrats fournisseurs &amp; conformité.</li>
+              <li>If conversion &lt;50%, expand referral incentives and revisit pricing anchors.</li>
+              <li>If margins &lt;30%, rebalance menu mix (local staples vs. premium) and renegotiate supplier terms.</li>
+              <li>Monthly review ritual connects research insights to product and growth experiments.</li>
             </ul>
           </div>
         </div>
+        <p class="muted">Projections are informed by market research, segmentation, and positioning assumptions, and will be recalibrated as pilot data lands.</p>
       </section>
 
       <section data-background-color="#fff5eb">
-        <span class="section-label">appendix</span>
-        <h2>Sources &amp; pièces jointes</h2>
-        <div class="card">
-          <ul>
-            <li>Transcriptions interviews (Google Doc) · accès restreint équipe projet.</li>
-            <li>Benchmark concurrentiel · captures Tchop et Yamo &amp; K My Choice.</li>
-            <li>Tableur modèle financier · projections hub Douala &amp; Yaoundé.</li>
-            <li>Storyboard Hero&apos;s Journey · dossier partagés pour visuels définitifs.</li>
-          </ul>
+        <h2>Support required to deliver</h2>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Budget</h3>
+            <ul>
+              <li>45M FCFA across kitchen setup, rider fleet incentives, and brand rollout.</li>
+              <li>Contingency reserve of 10% earmarked for demand spikes.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Team &amp; governance</h3>
+            <ul>
+              <li>Core squad: product marketing lead (me), ops analyst, campus growth lead, B2B account manager.</li>
+              <li>Advisory: legal counsel for supplier agreements, finance partner for KPI instrumentation.</li>
+            </ul>
+          </div>
         </div>
-        <p class="muted">Utiliser le mode notes pour détails chiffrés lors des questions.</p>
+        <p class="muted">This support keeps the roadmap, KPIs, and projection adjustments grounded in timely execution.</p>
       </section>
 
-      <section data-background-color="#fffcf8" data-mini="cool_shades,love_heart">
-        <h2>Merci &amp; à très vite</h2>
-        <p>Projet réalisé dans le cadre du <strong>AltSchool Africa — Product Marketing Semester 1 Exam (2025)</strong>.</p>
-        <p class="muted">Contact: michel.tchassem@xyzexpress.com · Douala</p>
-        <aside class="notes">Clore avec remerciements, rappeler disponibilité pour partager la version web avant la soumission PDF.</aside>
+      <section data-background-color="#fff5eb">
+        <h2>Call to action</h2>
+        <div class="card soft">
+          <ul>
+            <li>Align on the hybrid product scope and validation roadmap this week.</li>
+            <li>Approve the 45M FCFA pilot budget and governance cadence.</li>
+            <li>Confirm timeline for exporting this deck to PDF and sharing via Google Drive.</li>
+          </ul>
+          <p class="muted">Once approved, we move directly into interview scheduling and concierge MVP setup.</p>
+        </div>
+      </section>
+
+      <section data-background-color="#ffffff" data-mini="founder_tl,founder_br">
+        <div class="intro-card">
+          <h2>Thank you!</h2>
+          <p>This go-to-market plan was created for the AltSchool Africa Product Marketing First Semester Exam (2025).</p>
+          <div class="contact-grid">
+            <span><strong>Submitted by</strong> TEGOFACK JEUKENG Ange Michel</span>
+            <span><strong>Personal email</strong> jeukengange@gmail.com</span>
+            <span><strong>Professional email</strong> bonjour@micheltegofack.com</span>
+          </div>
+          <p class="muted">Ready to share the Reveal.js version and the PDF export via Google Drive upon request.</p>
+        </div>
+        <aside class="notes">Close with gratitude, restate the exam context, and confirm availability for walkthroughs before submission.</aside>
       </section>
 
     </div>
@@ -623,10 +626,17 @@
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/zoom/zoom.js"></script>
 
   <script>
-    const MINI = {"cool_shades": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390858/cool_shades_atfezm.png", "love_heart": "https://res.cloudinary.com/diuvvyatm/image/upload/v1761390862/love_heart_lwokcx.png"};
+    const MINI = {
+      founder_tl:"https://res.cloudinary.com/diuvvyatm/image/upload/v1761390859/gentle_smile_sojuto.png",
+      founder_tr:"https://res.cloudinary.com/diuvvyatm/image/upload/v1761390859/gentle_smile_sojuto.png",
+      founder_bl:"https://res.cloudinary.com/diuvvyatm/image/upload/v1761390859/gentle_smile_sojuto.png",
+      founder_br:"https://res.cloudinary.com/diuvvyatm/image/upload/v1761390859/gentle_smile_sojuto.png"
+    };
     const PRESETS = {
-      cool_shades:{pos:'tl', anim:'pop'},
-      love_heart:{pos:'br', anim:'fade-in'}
+      founder_tl:{pos:'tl', anim:'pop'},
+      founder_tr:{pos:'tr', anim:'fade-in'},
+      founder_bl:{pos:'bl', anim:'fade-in'},
+      founder_br:{pos:'br', anim:'pop'}
     };
 
     const deck = new Reveal({
